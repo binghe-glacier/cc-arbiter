@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "status": "Revision of 2026-10-12: journal formatting, declarations, cohort/subgroup tables, figure fonts and pdfLaTeX compatibility applied. Ethics approval not required (confirmed by supervisor). Code under the MIT license; public archive at https://github.com/binghe-glacier/cc-arbiter; archived at Zenodo under DOI 10.5281/zenodo.23329663. Final author approval pending. Not submitted.",
+  "status": "Revision of 2026-10-12, update of 2026-10-13: journal formatting, declarations, cohort/subgroup tables, figure fonts and pdfLaTeX compatibility applied. Ethics approval not required (confirmed by supervisor). Code under the MIT license; public archive at https://github.com/binghe-glacier/cc-arbiter; archived at Zenodo under DOI 10.5281/zenodo.23329663. Reference list expanded to 31 citations, each checked against publisher records; generative-AI disclosure covers reference-list expansion. Final author approval pending. Not submitted.",
   "files": [
     {
       "path": "ENHANCEMENT_PROTOCOL.md",
@@ -9,8 +9,8 @@
     },
     {
       "path": "LICENSE",
-      "bytes": 1092,
-      "sha256": "1edd9dc6c607e605014a007d9f5c440e2e4684171dbb4d8fb48fd7ac76de5df8"
+      "bytes": 1106,
+      "sha256": "b2237fa60cebff722b2e558fa82103941689ceab32d2677a099c9cb87b91234e"
     },
     {
       "path": "PROTOCOL.md",
@@ -29,8 +29,8 @@
     },
     {
       "path": "START_HERE.html",
-      "bytes": 8581,
-      "sha256": "0ff2006e37d64d9bad381f11913d670ec177c2af827ea2a79bc15e85e3d30356"
+      "bytes": 10046,
+      "sha256": "ff28ce96ee81877bb2e8d057daa2ec0d117f41ccb5ccc055fae6905ec109cde2"
     },
     {
       "path": "code/build_pdf.py",
@@ -94,8 +94,8 @@
     },
     {
       "path": "code/package_delivery.py",
-      "bytes": 3842,
-      "sha256": "2edd5e1887aaa4770f4b241d6a546fa2cf1470659419889b2c3d274670b01a4e"
+      "bytes": 4003,
+      "sha256": "b1847895795b4308de44eccad4435328d4423528607572d6136b612e8e546adc"
     },
     {
       "path": "code/prepare_cohorts.py",
@@ -189,8 +189,8 @@
     },
     {
       "path": "cover_letter.md",
-      "bytes": 3795,
-      "sha256": "23b2caa21eb1e7562c1de86c5408b7f00e4688e0c0d1a4ae72dc43cb70f03d6c"
+      "bytes": 4079,
+      "sha256": "6b8295f4787593435f3009e45fcba26791889f298f04fb3fb724135151eacd91"
     },
     {
       "path": "data/cohorts.json",
@@ -244,8 +244,8 @@
     },
     {
       "path": "evidence/bibliography_verification.json",
-      "bytes": 777,
-      "sha256": "dedd2e97af8d6583fa9f20fe643ceee942a6a19900e2f0be2d04111f916e47e5"
+      "bytes": 3789,
+      "sha256": "605f7f119a1756fc5a0a5ceccfd761ea8332ef103b892bd3ade78b42a97d0577"
     },
     {
       "path": "evidence/cohort_audit.json",
@@ -255,17 +255,17 @@
     {
       "path": "evidence/compile_main.txt",
       "bytes": 708,
-      "sha256": "24428d476c76b6aa51e2f7abad1f357866399b97711ed5d228976fe1208149b5"
+      "sha256": "203216e8edd8e9fc79210e34bf09d5fc4aff7af03ac2f70aac3a0a6cafa150f7"
     },
     {
       "path": "evidence/compile_main_review.txt",
-      "bytes": 905,
-      "sha256": "ddb32c49ddfc9f6f25d2826bba9585876e44abd9a65b14cbba4bef491488f43e"
+      "bytes": 1136,
+      "sha256": "accd3f4fd48405716a5ae6f1960bf0bb4b17fff179d8f47bc3cd44bd056c9eaf"
     },
     {
       "path": "evidence/compile_supplement.txt",
       "bytes": 653,
-      "sha256": "1d5612918ddd48b9286947ce076632618adc8222c9a8d279a32f3ff1b6dec7cc"
+      "sha256": "c6939f2813600f499c008a1b9ee21a94c7d9e33bc38e400eb85d02a372393802"
     },
     {
       "path": "evidence/enhancement_lock.json",
@@ -410,22 +410,22 @@
     {
       "path": "output/pdf/figures.pdf",
       "bytes": 233705,
-      "sha256": "348307a8cbf99cd900cdf56248fa6ea7443a2c7f21b80a12ac745d02affb5b58"
+      "sha256": "778ecbe1833b1db6c0517d543bcd841a3794bd10cd7bb7aa931e0537c80f302f"
     },
     {
       "path": "output/pdf/main.pdf",
-      "bytes": 399925,
-      "sha256": "2efd42c7c94fa15c3d7d0b6f3db5f378f9f422546677aed2920ae752e2332e3b"
+      "bytes": 405467,
+      "sha256": "2cc49566e82a7599451d7deb3f66725fe60d5a0f9e2c74082eb89f66e828ebdb"
     },
     {
       "path": "output/pdf/main_review.pdf",
-      "bytes": 408301,
-      "sha256": "e1c40b060b3a5b9bf43dcbf51fe9b380be3300a2c41ff8904ffa15e0c1e776b5"
+      "bytes": 413808,
+      "sha256": "a8a218e57bf7fc3477f59d207e058b63588e6398edca15ac53947800834b0d1f"
     },
     {
       "path": "output/pdf/supplement.pdf",
-      "bytes": 154861,
-      "sha256": "4807ecb273c1a291bd91fc3e7adb1dbd2dfbd0e1b0784bad92bb4e5965c90b51"
+      "bytes": 154859,
+      "sha256": "98008941329009d210ce2dd71f7e898dcbf471c1c3bf23ad3962688126e73c1d"
     },
     {
       "path": "paper/figures/fig1_architecture.pdf",
@@ -569,8 +569,8 @@
     },
     {
       "path": "paper/main.tex",
-      "bytes": 60601,
-      "sha256": "8134db9f86e653265947121854590d5eac8c316983cd1af933dd8684790d7716"
+      "bytes": 62702,
+      "sha256": "2174526c030eccd672e30d7fc549eb2162ef6dafa60b887cb4f423d159557167"
     },
     {
       "path": "paper/main_review.tex",
@@ -749,8 +749,8 @@
     },
     {
       "path": "submission_fields.txt",
-      "bytes": 3410,
-      "sha256": "f17a7cb4cec932f127147539f843b11a3c2230cc302b6e611f5bb93e583c0702"
+      "bytes": 3694,
+      "sha256": "cf5397581aa18656d15abe63761ec19888905a6e245d65366187c59b0da225a4"
     },
     {
       "path": "作者声明填写说明.md",
@@ -759,8 +759,8 @@
     },
     {
       "path": "作者必读_修订与投稿建议.md",
-      "bytes": 6827,
-      "sha256": "ce51553723b60095343ab558e051a5a6e8f038aa06e1824b682f81a282ebd16a"
+      "bytes": 8222,
+      "sha256": "b47db56a3288ad9b1d679602fbbbba67c14197e1e54793247e04a86e4b1d38e8"
     }
   ]
 }

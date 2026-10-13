@@ -29,7 +29,7 @@ def main():
     files=sorted(set(files),key=lambda p:p.relative_to(ROOT).as_posix())
     assert all(p.is_file() for p in files)
     assert not any(p.suffix in ['.parquet','.ttf','.pt','.tgz','.jpg'] or p.name=='.env' for p in files)
-    manifest={'version':3,'status':'Revision of 2026-10-12: journal formatting, declarations, cohort/subgroup tables, figure fonts and pdfLaTeX compatibility applied. Ethics approval not required (confirmed by supervisor). Code under the MIT license; public archive at https://github.com/binghe-glacier/cc-arbiter; archived at Zenodo under DOI 10.5281/zenodo.23329663. Final author approval pending. Not submitted.',
+    manifest={'version':3,'status':'Revision of 2026-10-12, update of 2026-10-13: journal formatting, declarations, cohort/subgroup tables, figure fonts and pdfLaTeX compatibility applied. Ethics approval not required (confirmed by supervisor). Code under the MIT license; public archive at https://github.com/binghe-glacier/cc-arbiter; archived at Zenodo under DOI 10.5281/zenodo.23329663. Reference list expanded to 31 citations, each checked against publisher records; generative-AI disclosure covers reference-list expansion. Final author approval pending. Not submitted.',
               'files':[{'path':p.relative_to(ROOT).as_posix(),'bytes':p.stat().st_size,'sha256':sha(p)} for p in files]}
     (ROOT/'MANIFEST.json').write_text(json.dumps(manifest,indent=2,ensure_ascii=False),encoding='utf8')
     archive=ROOT/'CC-Arbiter_v3_revision_20261012.zip'

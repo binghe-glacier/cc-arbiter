@@ -1,11 +1,39 @@
-[
-  {
-    "url": "https://openaccess.thecvf.com/content_cvpr_2017/html/Wang_ChestX-ray8_Hospital-Scale_Chest_CVPR_2017_paper.html",
-    "status": 200,
-    "bibtex": "@InProceedings{Wang_2017_CVPR, author = {Wang, Xiaosong and Peng, Yifan and Lu, Le and Lu, Zhiyong and Bagheri, Mohammadhadi and Summers, Ronald M.}, title = {ChestX-ray8: Hospital-Scale Chest X-Ray Database and Benchmarks on Weakly-Supervised Classification and Localization of Common Thorax Diseases}, booktitle = {Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, month = {July}, year = {2017} }"
-  },
-  {
-    "url": "https://openaccess.thecvf.com/content_cvpr_2017/html/Huang_Densely_Connected_Convolutional_CVPR_2017_paper.html",
-    "error": "SSLError"
-  }
-]
+{
+  "verified_on": "2026-10-13",
+  "total_references": 31,
+  "all_cited_in_main_text": true,
+  "method": "DOIs compared against Crossref metadata (title, volume, pages); arXiv identifiers resolved on arxiv.org with titles compared, and author lists additionally compared for the 2025-2026 entries; PMLR and NeurIPS venue pages checked; the Zenodo deposit 10.5281/zenodo.23329663 and the GitHub repository binghe-glacier/cc-arbiter fetched and confirmed live.",
+  "checks": [
+    {"key": "topol2019high", "identifier": "10.1038/s41591-018-0300-7", "result": "Crossref: title, vol 25, pp 44-56"},
+    {"key": "decideai", "identifier": "10.1038/s41591-022-01772-9", "result": "Crossref: title, vol 28, pp 924-933"},
+    {"key": "medrax", "identifier": "arXiv:2502.02673", "result": "arXiv: title and 5 authors match; PMLR 267:15661-15676 confirmed"},
+    {"key": "cxragent", "identifier": "arXiv:2510.21324", "result": "arXiv: title and authors match"},
+    {"key": "radagents", "identifier": "arXiv:2509.20490", "result": "arXiv: title and authors match; PMLR 315:3496-3519 confirmed"},
+    {"key": "vovk", "identifier": "10.1007/b106715", "result": "Crossref: title, Springer, 2005"},
+    {"key": "gentle", "identifier": "arXiv:2107.07511", "result": "arXiv: title match"},
+    {"key": "angelopoulos2021uncertainty", "identifier": "arXiv:2009.14193", "result": "arXiv: title match"},
+    {"key": "romano2020classification", "identifier": "arXiv:2006.02544", "result": "arXiv: title match"},
+    {"key": "vovk2012conditional", "identifier": "PMLR 25:475-490", "result": "PMLR volume page confirmed"},
+    {"key": "hendrycks2017baseline", "identifier": "arXiv:1610.02136", "result": "arXiv: title match"},
+    {"key": "geifman2017selective", "identifier": "arXiv:1705.08500", "result": "arXiv: title match"},
+    {"key": "mozannar2020consistent", "identifier": "PMLR 119:7076-7087", "result": "PMLR paper page confirmed"},
+    {"key": "madras2018predict", "identifier": "NeurIPS 2018", "result": "NeurIPS proceedings page confirmed"},
+    {"key": "ltt", "identifier": "arXiv:2110.01052", "result": "arXiv: title match"},
+    {"key": "crc", "identifier": "arXiv:2208.02814", "result": "arXiv: title match"},
+    {"key": "score", "identifier": "arXiv:2603.24704", "result": "arXiv: title and authors match"},
+    {"key": "coma", "identifier": "arXiv:2403.15527", "result": "arXiv: title and authors match"},
+    {"key": "nih", "identifier": "arXiv:1705.02315", "result": "arXiv: title match"},
+    {"key": "iu", "identifier": "10.1093/jamia/ocv080", "result": "Crossref: title, vol 23, pp 304-310"},
+    {"key": "xrv", "identifier": "arXiv:2111.00595", "result": "arXiv: title match"},
+    {"key": "densenet", "identifier": "arXiv:1608.06993", "result": "arXiv: title match"},
+    {"key": "chex", "identifier": "arXiv:1901.07031", "result": "arXiv: title match"},
+    {"key": "mimic", "identifier": "10.1038/s41597-019-0322-0", "result": "Crossref: title, vol 6"},
+    {"key": "guo2017calibration", "identifier": "PMLR 70:1321-1330", "result": "PMLR paper page confirmed"},
+    {"key": "cpinterval", "identifier": "10.1093/biomet/26.4.404", "result": "Crossref: title, vol 26, pp 404-413"},
+    {"key": "efron1979bootstrap", "identifier": "10.1214/aos/1176344552", "result": "Crossref: title, vol 7"},
+    {"key": "zech2018variable", "identifier": "10.1371/journal.pmed.1002683", "result": "Crossref: title, vol 15, e1002683"},
+    {"key": "tibshirani2019covariate", "identifier": "NeurIPS 2019 (vol 32)", "result": "NeurIPS proceedings page confirmed"},
+    {"key": "oakdenrayner", "identifier": "arXiv:1909.12475", "result": "arXiv: title and authors match"},
+    {"key": "seyyedkalantari", "identifier": "10.1038/s41591-021-01595-0", "result": "Crossref: title, vol 27, pp 2176-2182"}
+  ]
+}
