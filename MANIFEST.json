@@ -29,8 +29,8 @@
     },
     {
       "path": "START_HERE.html",
-      "bytes": 10046,
-      "sha256": "ff28ce96ee81877bb2e8d057daa2ec0d117f41ccb5ccc055fae6905ec109cde2"
+      "bytes": 10144,
+      "sha256": "1b89450e13f5ba5b6bff414516ad1770ac0a03bf71a4061ad6d386368251bfaf"
     },
     {
       "path": "code/build_pdf.py",
@@ -244,8 +244,8 @@
     },
     {
       "path": "evidence/author_declarations.json",
-      "bytes": 867,
-      "sha256": "828649a56c21035b334dc4089bbf8001807728c39e73a97d918c1ecf6ff9cf5c"
+      "bytes": 1154,
+      "sha256": "4f3bef166dfd40486049639341311018f6c11261d6a7613144dd8c61729027e5"
     },
     {
       "path": "evidence/bibliography_verification.json",
@@ -415,7 +415,7 @@
     {
       "path": "output/pdf/figures.pdf",
       "bytes": 233705,
-      "sha256": "d0d665387b6f1e5605c76eb38bcb2be28c8f25b22116f1909933b48984dbb13f"
+      "sha256": "4816683f3878e1f246722e1c291ec0b53f718c4654cbc8b66804bfd9fa6069c0"
     },
     {
       "path": "output/pdf/main.pdf",
@@ -754,8 +754,8 @@
     },
     {
       "path": "submission_fields.txt",
-      "bytes": 3694,
-      "sha256": "cf5397581aa18656d15abe63761ec19888905a6e245d65366187c59b0da225a4"
+      "bytes": 3765,
+      "sha256": "4d4ab6b742b11d921e4a58a0eb9e9d8f2185e73894df1388305549ee8ee91ab4"
     },
     {
       "path": "作者声明填写说明.md",
@@ -764,8 +764,8 @@
     },
     {
       "path": "作者必读_修订与投稿建议.md",
-      "bytes": 8222,
-      "sha256": "b47db56a3288ad9b1d679602fbbbba67c14197e1e54793247e04a86e4b1d38e8"
+      "bytes": 8331,
+      "sha256": "d1d331895e6bd5d769d2f67498820d1154cd95d1b3678aeb1b08b008bbb56bcf"
     }
   ]
 }
