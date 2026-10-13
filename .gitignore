@@ -1,0 +1,16 @@
+tmp/
+paper/local-fonts/
+__pycache__/
+*.pyc
+*.zip
+*.lnk
+output/pdf/*.log
+output/pdf/*.xdv
+paper/*.aux
+paper/*.out
+raw/
+output/*.md
+START_HERE.html
+cover_letter.md
+submission_fields.txt
+作者*.md

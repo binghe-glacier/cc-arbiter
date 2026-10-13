@@ -1,0 +1,18 @@
+{
+  "nih": {
+    "positive_annotations": 232,
+    "mean_true_positive": 175,
+    "intersection_true_positive": 95,
+    "intersection_positive_proposals": 773,
+    "gated_true_positive": 3,
+    "gated_positive_releases": 11
+  },
+  "iu": {
+    "positive_annotations": 193,
+    "mean_true_positive": 188,
+    "intersection_true_positive": 69,
+    "intersection_positive_proposals": 1108,
+    "gated_true_positive": 0,
+    "gated_positive_releases": 0
+  }
+}

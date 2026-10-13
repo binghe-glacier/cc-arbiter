@@ -1,0 +1,46 @@
+[
+  {
+    "shard": 2,
+    "url": "https://huggingface.co/datasets/BahaaEldin0/NIH-Chest-Xray-14/resolve/efdd60f009509e6309d306f3681ac863b0c2fabb/default/test/0002.parquet",
+    "conversion_commit": "efdd60f009509e6309d306f3681ac863b0c2fabb",
+    "source_main_commit": "932bcdba9d7d9590704d4f20bc70fc2c3a1bbad7",
+    "file": "raw\\nih_replication\\test-0002.parquet",
+    "bytes": 450004827,
+    "sha256": "eaf8425e52ce43a59b09b13f495c6b1e153c235a0fddb429c9e1c62c1b3acf4a",
+    "rows": 1121,
+    "failed_attempts": []
+  },
+  {
+    "shard": 3,
+    "url": "https://huggingface.co/datasets/BahaaEldin0/NIH-Chest-Xray-14/resolve/efdd60f009509e6309d306f3681ac863b0c2fabb/default/test/0003.parquet",
+    "conversion_commit": "efdd60f009509e6309d306f3681ac863b0c2fabb",
+    "source_main_commit": "932bcdba9d7d9590704d4f20bc70fc2c3a1bbad7",
+    "file": "raw\\nih_replication\\test-0003.parquet",
+    "bytes": 449046639,
+    "sha256": "58cd9cb0445256ddcf0394aef83cb8a88656f40e56d4d664c72d09471d4199ac",
+    "rows": 1121,
+    "failed_attempts": []
+  },
+  {
+    "shard": 4,
+    "url": "https://huggingface.co/datasets/BahaaEldin0/NIH-Chest-Xray-14/resolve/efdd60f009509e6309d306f3681ac863b0c2fabb/default/test/0004.parquet",
+    "conversion_commit": "efdd60f009509e6309d306f3681ac863b0c2fabb",
+    "source_main_commit": "932bcdba9d7d9590704d4f20bc70fc2c3a1bbad7",
+    "file": "raw\\nih_replication\\test-0004.parquet",
+    "bytes": 451643918,
+    "sha256": "0485ec3e35a868790c83e0063c976624b2888770fd59ae4c4b692b701088c896",
+    "rows": 1121,
+    "failed_attempts": []
+  },
+  {
+    "shard": 5,
+    "url": "https://huggingface.co/datasets/BahaaEldin0/NIH-Chest-Xray-14/resolve/efdd60f009509e6309d306f3681ac863b0c2fabb/default/test/0005.parquet",
+    "conversion_commit": "efdd60f009509e6309d306f3681ac863b0c2fabb",
+    "source_main_commit": "932bcdba9d7d9590704d4f20bc70fc2c3a1bbad7",
+    "file": "raw\\nih_replication\\test-0005.parquet",
+    "bytes": 450935686,
+    "sha256": "1b36694353b31c5dc1834c263b71a345476542f9c65af5d4355e7e410d5b80e1",
+    "rows": 1121,
+    "failed_attempts": []
+  }
+]

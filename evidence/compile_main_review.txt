@@ -1,0 +1,13 @@
+note: Running TeX ...
+Fontconfig error: Cannot load default config file: No such file: (null)
+warning: lineno.sty:296: Invalid UTF-8 byte or sequence at line 296 replaced by U+FFFD.
+warning: main.tex:224: Underfull \hbox (badness 1281) in paragraph at lines 223--224
+warning: main.tex:317: Underfull \hbox (badness 2012) in paragraph at lines 316--317
+note: Rerunning TeX because "main_review.out" changed ...
+warning: lineno.sty:296: Invalid UTF-8 byte or sequence at line 296 replaced by U+FFFD.
+warning: main.tex:317: Underfull \hbox (badness 2012) in paragraph at lines 316--317
+warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.
+note: Running xdvipdfmx ...
+note: Writing `../output/pdf\main_review.log` (12.15 KiB)
+note: Writing `../output/pdf\main_review.pdf` (398.72 KiB)
+note: Skipped writing 2 intermediate files (use --keep-intermediates to keep them)

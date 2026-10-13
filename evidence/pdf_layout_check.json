@@ -1,0 +1,222 @@
+{
+  "main": {
+    "pages": 21,
+    "details": [
+      {
+        "page": 1,
+        "chars": 3489,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 2,
+        "chars": 3332,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 3,
+        "chars": 3250,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 4,
+        "chars": 3203,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 5,
+        "chars": 1924,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 6,
+        "chars": 3355,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 7,
+        "chars": 3449,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 8,
+        "chars": 3410,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 9,
+        "chars": 2501,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 10,
+        "chars": 3214,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 11,
+        "chars": 1917,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 12,
+        "chars": 2578,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 13,
+        "chars": 2466,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 14,
+        "chars": 2432,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 15,
+        "chars": 2955,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 16,
+        "chars": 2798,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 17,
+        "chars": 2525,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 18,
+        "chars": 3804,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 19,
+        "chars": 2962,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 20,
+        "chars": 2660,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 21,
+        "chars": 2446,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      }
+    ]
+  },
+  "supplement": {
+    "pages": 14,
+    "details": [
+      {
+        "page": 1,
+        "chars": 2931,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 2,
+        "chars": 2751,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 3,
+        "chars": 1876,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 4,
+        "chars": 1663,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 5,
+        "chars": 3590,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 6,
+        "chars": 52,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 7,
+        "chars": 3444,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 8,
+        "chars": 2759,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 9,
+        "chars": 2479,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 10,
+        "chars": 2231,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 11,
+        "chars": 2679,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 12,
+        "chars": 2712,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 13,
+        "chars": 3583,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      },
+      {
+        "page": 14,
+        "chars": 3808,
+        "unresolved_reference": false,
+        "outside_page_margin": []
+      }
+    ]
+  }
+}

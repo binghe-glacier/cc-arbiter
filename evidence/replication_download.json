@@ -1,0 +1,26 @@
+[
+  {
+    "shard": 0,
+    "url": "https://huggingface.co/datasets/BahaaEldin0/NIH-Chest-Xray-14/resolve/efdd60f009509e6309d306f3681ac863b0c2fabb/default/test/0000.parquet",
+    "conversion_commit": "efdd60f009509e6309d306f3681ac863b0c2fabb",
+    "source_main_commit": "932bcdba9d7d9590704d4f20bc70fc2c3a1bbad7",
+    "file": "raw\\nih_replication\\test-0000.parquet",
+    "bytes": 451607539,
+    "sha256": "b9953f3ceddcccc93984561ae86da6da9e6f6fdaedab26ed6610af523dc83eff",
+    "rows": 1122,
+    "failed_attempts": [],
+    "recovered_complete_transfer": true
+  },
+  {
+    "shard": 1,
+    "url": "https://huggingface.co/datasets/BahaaEldin0/NIH-Chest-Xray-14/resolve/efdd60f009509e6309d306f3681ac863b0c2fabb/default/test/0001.parquet",
+    "conversion_commit": "efdd60f009509e6309d306f3681ac863b0c2fabb",
+    "source_main_commit": "932bcdba9d7d9590704d4f20bc70fc2c3a1bbad7",
+    "file": "raw\\nih_replication\\test-0001.parquet",
+    "bytes": 450344262,
+    "sha256": "3a5c8f966834271898b39583b722fdf5a1e4a7debc4692cdf04b4fe4eb60a39e",
+    "rows": 1122,
+    "failed_attempts": [],
+    "recovered_complete_transfer": true
+  }
+]

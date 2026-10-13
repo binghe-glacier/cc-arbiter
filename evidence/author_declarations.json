@@ -1,0 +1,12 @@
+{
+  "source": "User statements in conversation, 2026-10-09 and 2026-10-12",
+  "no_competing_interests_confirmed": true,
+  "no_grant_support_confirmed": true,
+  "Yaocong_Yang_confirmed_contribution": "Conceptualization, Methodology, Software, Formal analysis, Investigation, Data curation, Visualization, Writing (original draft)",
+  "Xiangyong_Kong_confirmed_contribution": "Supervision",
+  "Xiangyong_Kong_corresponding_author": true,
+  "institutional_ethics_determination_obtained": false,
+  "final_approval_by_all_authors_confirmed": false,
+  "other_credit_roles_not_inferred": true,
+  "ethics_requirement": "Not required: secondary analysis of public, de-identified NIH ChestX-ray14 and IU data with no participant contact; confirmed by supervising faculty (Xiangyong Kong) on 2026-10-12 as relayed by the user. No committee reference number exists."
+}

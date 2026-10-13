@@ -1,0 +1,13 @@
+{
+  "created_utc": "2026-10-08T23:44:35.185733+00:00",
+  "original_test_outcomes_previously_inspected": true,
+  "new_shards_downloaded": false,
+  "sha256": {
+    "ENHANCEMENT_PROTOCOL.md": "6d7c2d499ed43c14129e6e5433b24d2de5bf524aa4200e68350993f7da802cfb",
+    "data/unit_scores.jsonl": "3c1115de2d301646d14d092d63145449aa6adab954b0c73b0dfbd8e5c1996363",
+    "data/cohorts.json": "bd730fdda350ded5b6e8715e83f704edf3f0efa9a3a425ca09608ccec89793ab",
+    "results/results.json": "685316915365612ff152550d5295e7d773fec983b4e26e14a3253a5b09265b00",
+    "results/nih_calibration.json": "4f5e29229bb4ee9da450f658a4fbdb18dcfb22af47f49442267f8d90e57cb662",
+    "results/iu_calibration.json": "00d7380de0435d01766cb0b8b6a46c22623dae351e6052eecf3968c6f7f11070"
+  }
+}

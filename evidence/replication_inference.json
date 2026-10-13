@@ -1,0 +1,8 @@
+{
+  "units": 1582,
+  "failures": [],
+  "seconds": 15.323039299983066,
+  "weights_verified_against_original": true,
+  "precision": "FP32; TF32 disabled; deterministic algorithms",
+  "torch": "2.13.0+cu126"
+}

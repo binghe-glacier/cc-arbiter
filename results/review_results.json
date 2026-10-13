@@ -1,0 +1,1229 @@
+{
+  "endpoint": "Patient has >=1 of seven NIH annotations; review flag is not a diagnosis.",
+  "protocol": {
+    "created_utc": "2026-10-09T03:05:06.844134+00:00",
+    "new_shards_downloaded": false,
+    "previous_results_known": true,
+    "sha256": {
+      "REVIEW_ROUTING_PROTOCOL.md": "3b0dc30b2f2461291cf18569135f5febeef555e86410a92c07de84d7440ff3ca",
+      "data/cohorts.json": "bd730fdda350ded5b6e8715e83f704edf3f0efa9a3a425ca09608ccec89793ab",
+      "data/nih_replication_cohort.json": "abb876549369a7f6f9f8b534354d27fba44ae786cb892ea0e0abf22de04af7e7",
+      "data/unit_scores.jsonl": "3c1115de2d301646d14d092d63145449aa6adab954b0c73b0dfbd8e5c1996363",
+      "data/nih_replication_scores.jsonl": "0f1273e8167a4a53625872508473417e503e26368302543b4df13297e547d9c3"
+    }
+  },
+  "split_patients": {
+    "risk": 1278,
+    "test": 1279
+  },
+  "split_positive_patients": {
+    "risk": 250,
+    "test": 267
+  },
+  "policies": {
+    "stacker": {
+      "patients": 1279,
+      "positive_patients": 267,
+      "flagged": 1279,
+      "unflagged": 0,
+      "flagged_positive": 267,
+      "unflagged_positive": 0,
+      "sensitivity": 1.0,
+      "flag_fraction": 1.0,
+      "unflagged_fraction": 0.0,
+      "unflagged_positive_fraction": null,
+      "exact_sensitivity_ci": [
+        0.9862789753697232,
+        1.0
+      ],
+      "exact_unflagged_positive_ci": [
+        null,
+        null
+      ],
+      "ci": {
+        "sensitivity": [
+          1.0,
+          1.0
+        ],
+        "flag_fraction": [
+          1.0,
+          1.0
+        ],
+        "unflagged_positive_fraction": [
+          null,
+          null
+        ]
+      },
+      "per_finding": {
+        "Atelectasis": {
+          "positive": 115,
+          "flagged_positive": 115,
+          "sensitivity": 1.0,
+          "exact_ci": [
+            0.9684318040117529,
+            1.0
+          ],
+          "guaranteed_separately": false
+        },
+        "Cardiomegaly": {
+          "positive": 28,
+          "flagged_positive": 28,
+          "sensitivity": 1.0,
+          "exact_ci": [
+            0.8765638814997362,
+            1.0
+          ],
+          "guaranteed_separately": false
+        },
+        "Consolidation": {
+          "positive": 34,
+          "flagged_positive": 34,
+          "sensitivity": 1.0,
+          "exact_ci": [
+            0.8971820757409874,
+            1.0
+          ],
+          "guaranteed_separately": false
+        },
+        "Edema": {
+          "positive": 12,
+          "flagged_positive": 12,
+          "sensitivity": 1.0,
+          "exact_ci": [
+            0.7353515306029488,
+            1.0
+          ],
+          "guaranteed_separately": false
+        },
+        "Effusion": {
+          "positive": 106,
+          "flagged_positive": 106,
+          "sensitivity": 1.0,
+          "exact_ci": [
+            0.9657978327236497,
+            1.0
+          ],
+          "guaranteed_separately": false
+        },
+        "Pneumonia": {
+          "positive": 8,
+          "flagged_positive": 8,
+          "sensitivity": 1.0,
+          "exact_ci": [
+            0.6305833524471807,
+            1.0
+          ],
+          "guaranteed_separately": false
+        },
+        "Pneumothorax": {
+          "positive": 36,
+          "flagged_positive": 36,
+          "sensitivity": 1.0,
+          "exact_ci": [
+            0.902606244085508,
+            1.0
+          ],
+          "guaranteed_separately": false
+        }
+      }
+    },
+    "stacker_fixed_0.5": {
+      "patients": 1279,
+      "positive_patients": 267,
+      "flagged": 140,
+      "unflagged": 1139,
+      "flagged_positive": 73,
+      "unflagged_positive": 194,
+      "sensitivity": 0.27340823970037453,
+      "flag_fraction": 0.10946051602814699,
+      "unflagged_fraction": 0.890539483971853,
+      "unflagged_positive_fraction": 0.17032484635645304,
+      "exact_sensitivity_ci": [
+        0.22085642243487866,
+        0.33106820980565727
+      ],
+      "exact_unflagged_positive_ci": [
+        0.14892807467274388,
+        0.19343909866143383
+      ],
+      "ci": {
+        "sensitivity": [
+          0.22266081871345028,
+          0.3265440386680987
+        ],
+        "flag_fraction": [
+          0.09304143862392494,
+          0.1266614542611415
+        ],
+        "unflagged_positive_fraction": [
+          0.14910617236024845,
+          0.19184269326979259
+        ]
+      },
+      "per_finding": {
+        "Atelectasis": {
+          "positive": 115,
+          "flagged_positive": 26,
+          "sensitivity": 0.22608695652173913,
+          "exact_ci": [
+            0.1533151977335094,
+            0.3134605232048016
+          ],
+          "guaranteed_separately": false
+        },
+        "Cardiomegaly": {
+          "positive": 28,
+          "flagged_positive": 4,
+          "sensitivity": 0.14285714285714285,
+          "exact_ci": [
+            0.04033563079709133,
+            0.32665266931579523
+          ],
+          "guaranteed_separately": false
+        },
+        "Consolidation": {
+          "positive": 34,
+          "flagged_positive": 11,
+          "sensitivity": 0.3235294117647059,
+          "exact_ci": [
+            0.1738834274939214,
+            0.5052653008985046
+          ],
+          "guaranteed_separately": false
+        },
+        "Edema": {
+          "positive": 12,
+          "flagged_positive": 3,
+          "sensitivity": 0.25,
+          "exact_ci": [
+            0.05486064452799272,
+            0.5718584618781891
+          ],
+          "guaranteed_separately": false
+        },
+        "Effusion": {
+          "positive": 106,
+          "flagged_positive": 42,
+          "sensitivity": 0.39622641509433965,
+          "exact_ci": [
+            0.3025314883348664,
+            0.4958743689935974
+          ],
+          "guaranteed_separately": false
+        },
+        "Pneumonia": {
+          "positive": 8,
+          "flagged_positive": 1,
+          "sensitivity": 0.125,
+          "exact_ci": [
+            0.0031597235312519063,
+            0.5265096708752065
+          ],
+          "guaranteed_separately": false
+        },
+        "Pneumothorax": {
+          "positive": 36,
+          "flagged_positive": 12,
+          "sensitivity": 0.3333333333333333,
+          "exact_ci": [
+            0.1855618098259212,
+            0.5097025466518912
+          ],
+          "guaranteed_separately": false
+        }
+      }
+    },
+    "max_mean": {
+      "patients": 1279,
+      "positive_patients": 267,
+      "flagged": 1279,
+      "unflagged": 0,
+      "flagged_positive": 267,
+      "unflagged_positive": 0,
+      "sensitivity": 1.0,
+      "flag_fraction": 1.0,
+      "unflagged_fraction": 0.0,
+      "unflagged_positive_fraction": null,
+      "exact_sensitivity_ci": [
+        0.9862789753697232,
+        1.0
+      ],
+      "exact_unflagged_positive_ci": [
+        null,
+        null
+      ],
+      "ci": {
+        "sensitivity": [
+          1.0,
+          1.0
+        ],
+        "flag_fraction": [
+          1.0,
+          1.0
+        ],
+        "unflagged_positive_fraction": [
+          null,
+          null
+        ]
+      },
+      "per_finding": {
+        "Atelectasis": {
+          "positive": 115,
+          "flagged_positive": 115,
+          "sensitivity": 1.0,
+          "exact_ci": [
+            0.9684318040117529,
+            1.0
+          ],
+          "guaranteed_separately": false
+        },
+        "Cardiomegaly": {
+          "positive": 28,
+          "flagged_positive": 28,
+          "sensitivity": 1.0,
+          "exact_ci": [
+            0.8765638814997362,
+            1.0
+          ],
+          "guaranteed_separately": false
+        },
+        "Consolidation": {
+          "positive": 34,
+          "flagged_positive": 34,
+          "sensitivity": 1.0,
+          "exact_ci": [
+            0.8971820757409874,
+            1.0
+          ],
+          "guaranteed_separately": false
+        },
+        "Edema": {
+          "positive": 12,
+          "flagged_positive": 12,
+          "sensitivity": 1.0,
+          "exact_ci": [
+            0.7353515306029488,
+            1.0
+          ],
+          "guaranteed_separately": false
+        },
+        "Effusion": {
+          "positive": 106,
+          "flagged_positive": 106,
+          "sensitivity": 1.0,
+          "exact_ci": [
+            0.9657978327236497,
+            1.0
+          ],
+          "guaranteed_separately": false
+        },
+        "Pneumonia": {
+          "positive": 8,
+          "flagged_positive": 8,
+          "sensitivity": 1.0,
+          "exact_ci": [
+            0.6305833524471807,
+            1.0
+          ],
+          "guaranteed_separately": false
+        },
+        "Pneumothorax": {
+          "positive": 36,
+          "flagged_positive": 36,
+          "sensitivity": 1.0,
+          "exact_ci": [
+            0.902606244085508,
+            1.0
+          ],
+          "guaranteed_separately": false
+        }
+      }
+    },
+    "max_mean_fixed_0.5": {
+      "patients": 1279,
+      "positive_patients": 267,
+      "flagged": 670,
+      "unflagged": 609,
+      "flagged_positive": 216,
+      "unflagged_positive": 51,
+      "sensitivity": 0.8089887640449438,
+      "flag_fraction": 0.5238467552775606,
+      "unflagged_fraction": 0.4761532447224394,
+      "unflagged_positive_fraction": 0.08374384236453201,
+      "exact_sensitivity_ci": [
+        0.7566255893472553,
+        0.8543470007816355
+      ],
+      "exact_unflagged_positive_ci": [
+        0.06298667479167397,
+        0.10863903781265215
+      ],
+      "ci": {
+        "sensitivity": [
+          0.7627705274219659,
+          0.8550185873605948
+        ],
+        "flag_fraction": [
+          0.49726348709929635,
+          0.5512118842845973
+        ],
+        "unflagged_positive_fraction": [
+          0.06198844438608276,
+          0.10588286356209149
+        ]
+      },
+      "per_finding": {
+        "Atelectasis": {
+          "positive": 115,
+          "flagged_positive": 92,
+          "sensitivity": 0.8,
+          "exact_ci": [
+            0.7151707709013174,
+            0.8687900190420837
+          ],
+          "guaranteed_separately": false
+        },
+        "Cardiomegaly": {
+          "positive": 28,
+          "flagged_positive": 18,
+          "sensitivity": 0.6428571428571429,
+          "exact_ci": [
+            0.44065031274666655,
+            0.8135933399995545
+          ],
+          "guaranteed_separately": false
+        },
+        "Consolidation": {
+          "positive": 34,
+          "flagged_positive": 28,
+          "sensitivity": 0.8235294117647058,
+          "exact_ci": [
+            0.6546848689318661,
+            0.9323593473172429
+          ],
+          "guaranteed_separately": false
+        },
+        "Edema": {
+          "positive": 12,
+          "flagged_positive": 12,
+          "sensitivity": 1.0,
+          "exact_ci": [
+            0.7353515306029488,
+            1.0
+          ],
+          "guaranteed_separately": false
+        },
+        "Effusion": {
+          "positive": 106,
+          "flagged_positive": 96,
+          "sensitivity": 0.9056603773584906,
+          "exact_ci": [
+            0.8333436185458363,
+            0.9538275368773232
+          ],
+          "guaranteed_separately": false
+        },
+        "Pneumonia": {
+          "positive": 8,
+          "flagged_positive": 6,
+          "sensitivity": 0.75,
+          "exact_ci": [
+            0.3491442055871758,
+            0.9681459737500557
+          ],
+          "guaranteed_separately": false
+        },
+        "Pneumothorax": {
+          "positive": 36,
+          "flagged_positive": 29,
+          "sensitivity": 0.8055555555555556,
+          "exact_ci": [
+            0.6397519838249748,
+            0.9180563602347911
+          ],
+          "guaranteed_separately": false
+        }
+      }
+    },
+    "always_flag": {
+      "patients": 1279,
+      "positive_patients": 267,
+      "flagged": 1279,
+      "unflagged": 0,
+      "flagged_positive": 267,
+      "unflagged_positive": 0,
+      "sensitivity": 1.0,
+      "flag_fraction": 1.0,
+      "unflagged_fraction": 0.0,
+      "unflagged_positive_fraction": null,
+      "exact_sensitivity_ci": [
+        0.9862789753697232,
+        1.0
+      ],
+      "exact_unflagged_positive_ci": [
+        null,
+        null
+      ],
+      "ci": {
+        "sensitivity": [
+          1.0,
+          1.0
+        ],
+        "flag_fraction": [
+          1.0,
+          1.0
+        ],
+        "unflagged_positive_fraction": [
+          null,
+          null
+        ]
+      },
+      "per_finding": {
+        "Atelectasis": {
+          "positive": 115,
+          "flagged_positive": 115,
+          "sensitivity": 1.0,
+          "exact_ci": [
+            0.9684318040117529,
+            1.0
+          ],
+          "guaranteed_separately": false
+        },
+        "Cardiomegaly": {
+          "positive": 28,
+          "flagged_positive": 28,
+          "sensitivity": 1.0,
+          "exact_ci": [
+            0.8765638814997362,
+            1.0
+          ],
+          "guaranteed_separately": false
+        },
+        "Consolidation": {
+          "positive": 34,
+          "flagged_positive": 34,
+          "sensitivity": 1.0,
+          "exact_ci": [
+            0.8971820757409874,
+            1.0
+          ],
+          "guaranteed_separately": false
+        },
+        "Edema": {
+          "positive": 12,
+          "flagged_positive": 12,
+          "sensitivity": 1.0,
+          "exact_ci": [
+            0.7353515306029488,
+            1.0
+          ],
+          "guaranteed_separately": false
+        },
+        "Effusion": {
+          "positive": 106,
+          "flagged_positive": 106,
+          "sensitivity": 1.0,
+          "exact_ci": [
+            0.9657978327236497,
+            1.0
+          ],
+          "guaranteed_separately": false
+        },
+        "Pneumonia": {
+          "positive": 8,
+          "flagged_positive": 8,
+          "sensitivity": 1.0,
+          "exact_ci": [
+            0.6305833524471807,
+            1.0
+          ],
+          "guaranteed_separately": false
+        },
+        "Pneumothorax": {
+          "positive": 36,
+          "flagged_positive": 36,
+          "sensitivity": 1.0,
+          "exact_ci": [
+            0.902606244085508,
+            1.0
+          ],
+          "guaranteed_separately": false
+        }
+      }
+    }
+  },
+  "calibration": {
+    "stacker": {
+      "family": 164,
+      "delta": 0.05,
+      "target": 0.1,
+      "candidates": [
+        {
+          "threshold": 0.0,
+          "positive_calibration": 250,
+          "missed_positive": 0,
+          "unflagged_calibration": 0,
+          "miss_fraction_upper": 0.03186369900560136,
+          "unflagged_positive_upper": 1.0
+        },
+        {
+          "threshold": 0.025,
+          "positive_calibration": 250,
+          "missed_positive": 8,
+          "unflagged_calibration": 101,
+          "miss_fraction_upper": 0.08912329695389064,
+          "unflagged_positive_upper": 0.21098615688901054
+        },
+        {
+          "threshold": 0.05,
+          "positive_calibration": 250,
+          "missed_positive": 16,
+          "unflagged_calibration": 245,
+          "miss_fraction_upper": 0.1339865140191079,
+          "unflagged_positive_upper": 0.13661405802267088
+        },
+        {
+          "threshold": 0.07500000000000001,
+          "positive_calibration": 250,
+          "missed_positive": 32,
+          "unflagged_calibration": 368,
+          "miss_fraction_upper": 0.21436883838983053,
+          "unflagged_positive_upper": 0.1480187871023236
+        },
+        {
+          "threshold": 0.1,
+          "positive_calibration": 250,
+          "missed_positive": 39,
+          "unflagged_calibration": 480,
+          "miss_fraction_upper": 0.24745263974194762,
+          "unflagged_positive_upper": 0.13233709373891456
+        },
+        {
+          "threshold": 0.125,
+          "positive_calibration": 250,
+          "missed_positive": 47,
+          "unflagged_calibration": 564,
+          "miss_fraction_upper": 0.28423128129076597,
+          "unflagged_positive_upper": 0.13027712671739383
+        },
+        {
+          "threshold": 0.15000000000000002,
+          "positive_calibration": 250,
+          "missed_positive": 53,
+          "unflagged_calibration": 634,
+          "miss_fraction_upper": 0.3112195054270144,
+          "unflagged_positive_upper": 0.12754038494705633
+        },
+        {
+          "threshold": 0.17500000000000002,
+          "positive_calibration": 250,
+          "missed_positive": 60,
+          "unflagged_calibration": 706,
+          "miss_fraction_upper": 0.3421536319467065,
+          "unflagged_positive_upper": 0.12656216058338293
+        },
+        {
+          "threshold": 0.2,
+          "positive_calibration": 250,
+          "missed_positive": 71,
+          "unflagged_calibration": 766,
+          "miss_fraction_upper": 0.38972211904757287,
+          "unflagged_positive_upper": 0.13366162397520315
+        },
+        {
+          "threshold": 0.225,
+          "positive_calibration": 250,
+          "missed_positive": 83,
+          "unflagged_calibration": 824,
+          "miss_fraction_upper": 0.4403525171230418,
+          "unflagged_positive_upper": 0.14126772298419163
+        },
+        {
+          "threshold": 0.25,
+          "positive_calibration": 250,
+          "missed_positive": 98,
+          "unflagged_calibration": 884,
+          "miss_fraction_upper": 0.502016596591853,
+          "unflagged_positive_upper": 0.15122984041122442
+        },
+        {
+          "threshold": 0.275,
+          "positive_calibration": 250,
+          "missed_positive": 105,
+          "unflagged_calibration": 934,
+          "miss_fraction_upper": 0.5302253767579936,
+          "unflagged_positive_upper": 0.1517836869841574
+        },
+        {
+          "threshold": 0.30000000000000004,
+          "positive_calibration": 250,
+          "missed_positive": 118,
+          "unflagged_calibration": 974,
+          "miss_fraction_upper": 0.5817055877999918,
+          "unflagged_positive_upper": 0.16067533008489465
+        },
+        {
+          "threshold": 0.325,
+          "positive_calibration": 250,
+          "missed_positive": 124,
+          "unflagged_calibration": 1005,
+          "miss_fraction_upper": 0.6050765590765164,
+          "unflagged_positive_upper": 0.16249516160657104
+        },
+        {
+          "threshold": 0.35000000000000003,
+          "positive_calibration": 250,
+          "missed_positive": 130,
+          "unflagged_calibration": 1025,
+          "miss_fraction_upper": 0.6282038491559057,
+          "unflagged_positive_upper": 0.16590977494506526
+        },
+        {
+          "threshold": 0.375,
+          "positive_calibration": 250,
+          "missed_positive": 137,
+          "unflagged_calibration": 1046,
+          "miss_fraction_upper": 0.6548767123716938,
+          "unflagged_positive_upper": 0.17007635382200548
+        },
+        {
+          "threshold": 0.4,
+          "positive_calibration": 250,
+          "missed_positive": 145,
+          "unflagged_calibration": 1074,
+          "miss_fraction_upper": 0.6849473731584761,
+          "unflagged_positive_upper": 0.17397530459493907
+        },
+        {
+          "threshold": 0.42500000000000004,
+          "positive_calibration": 250,
+          "missed_positive": 158,
+          "unflagged_calibration": 1105,
+          "miss_fraction_upper": 0.7328423582256431,
+          "unflagged_positive_upper": 0.18214883902303575
+        },
+        {
+          "threshold": 0.45,
+          "positive_calibration": 250,
+          "missed_positive": 171,
+          "unflagged_calibration": 1127,
+          "miss_fraction_upper": 0.7794564321939845,
+          "unflagged_positive_upper": 0.19129599462465896
+        },
+        {
+          "threshold": 0.47500000000000003,
+          "positive_calibration": 250,
+          "missed_positive": 182,
+          "unflagged_calibration": 1149,
+          "miss_fraction_upper": 0.8177894237627255,
+          "unflagged_positive_upper": 0.19814574782217154
+        },
+        {
+          "threshold": 0.5,
+          "positive_calibration": 250,
+          "missed_positive": 190,
+          "unflagged_calibration": 1170,
+          "miss_fraction_upper": 0.8449452162151616,
+          "unflagged_positive_upper": 0.20209651235923354
+        },
+        {
+          "threshold": 0.525,
+          "positive_calibration": 250,
+          "missed_positive": 197,
+          "unflagged_calibration": 1185,
+          "miss_fraction_upper": 0.8681381699164795,
+          "unflagged_positive_upper": 0.20599692050687482
+        },
+        {
+          "threshold": 0.55,
+          "positive_calibration": 250,
+          "missed_positive": 202,
+          "unflagged_calibration": 1201,
+          "miss_fraction_upper": 0.8843375864764096,
+          "unflagged_positive_upper": 0.20781937551343507
+        },
+        {
+          "threshold": 0.5750000000000001,
+          "positive_calibration": 250,
+          "missed_positive": 209,
+          "unflagged_calibration": 1214,
+          "miss_fraction_upper": 0.9064256509137657,
+          "unflagged_positive_upper": 0.2118707438542451
+        },
+        {
+          "threshold": 0.6000000000000001,
+          "positive_calibration": 250,
+          "missed_positive": 215,
+          "unflagged_calibration": 1228,
+          "miss_fraction_upper": 0.9247143680386011,
+          "unflagged_positive_upper": 0.21477762222987715
+        },
+        {
+          "threshold": 0.625,
+          "positive_calibration": 250,
+          "missed_positive": 224,
+          "unflagged_calibration": 1240,
+          "miss_fraction_upper": 0.9507248968671136,
+          "unflagged_positive_upper": 0.22055291325383966
+        },
+        {
+          "threshold": 0.65,
+          "positive_calibration": 250,
+          "missed_positive": 228,
+          "unflagged_calibration": 1248,
+          "miss_fraction_upper": 0.9615730743098451,
+          "unflagged_positive_upper": 0.22261356770005897
+        },
+        {
+          "threshold": 0.675,
+          "positive_calibration": 250,
+          "missed_positive": 235,
+          "unflagged_calibration": 1260,
+          "miss_fraction_upper": 0.9790412536976788,
+          "unflagged_positive_upper": 0.22649987582217843
+        },
+        {
+          "threshold": 0.7000000000000001,
+          "positive_calibration": 250,
+          "missed_positive": 240,
+          "unflagged_calibration": 1265,
+          "miss_fraction_upper": 0.9897439326879869,
+          "unflagged_positive_upper": 0.22985624102338376
+        },
+        {
+          "threshold": 0.7250000000000001,
+          "positive_calibration": 250,
+          "missed_positive": 245,
+          "unflagged_calibration": 1271,
+          "miss_fraction_upper": 0.9977172458317168,
+          "unflagged_positive_upper": 0.23300238901056555
+        },
+        {
+          "threshold": 0.75,
+          "positive_calibration": 250,
+          "missed_positive": 246,
+          "unflagged_calibration": 1273,
+          "miss_fraction_upper": 0.9987486635073765,
+          "unflagged_positive_upper": 0.2334843981448043
+        },
+        {
+          "threshold": 0.775,
+          "positive_calibration": 250,
+          "missed_positive": 247,
+          "unflagged_calibration": 1274,
+          "miss_fraction_upper": 0.9994932683054464,
+          "unflagged_positive_upper": 0.2341437231911611
+        },
+        {
+          "threshold": 0.8,
+          "positive_calibration": 250,
+          "missed_positive": 247,
+          "unflagged_calibration": 1274,
+          "miss_fraction_upper": 0.9994932683054464,
+          "unflagged_positive_upper": 0.2341437231911611
+        },
+        {
+          "threshold": 0.8250000000000001,
+          "positive_calibration": 250,
+          "missed_positive": 249,
+          "unflagged_calibration": 1276,
+          "miss_fraction_upper": 0.9999987803026097,
+          "unflagged_positive_upper": 0.23545870569409247
+        },
+        {
+          "threshold": 0.8500000000000001,
+          "positive_calibration": 250,
+          "missed_positive": 250,
+          "unflagged_calibration": 1277,
+          "miss_fraction_upper": 1.0,
+          "unflagged_positive_upper": 0.23611437119800732
+        },
+        {
+          "threshold": 0.875,
+          "positive_calibration": 250,
+          "missed_positive": 250,
+          "unflagged_calibration": 1278,
+          "miss_fraction_upper": 1.0,
+          "unflagged_positive_upper": 0.2359343220374292
+        },
+        {
+          "threshold": 0.9,
+          "positive_calibration": 250,
+          "missed_positive": 250,
+          "unflagged_calibration": 1278,
+          "miss_fraction_upper": 1.0,
+          "unflagged_positive_upper": 0.2359343220374292
+        },
+        {
+          "threshold": 0.925,
+          "positive_calibration": 250,
+          "missed_positive": 250,
+          "unflagged_calibration": 1278,
+          "miss_fraction_upper": 1.0,
+          "unflagged_positive_upper": 0.2359343220374292
+        },
+        {
+          "threshold": 0.9500000000000001,
+          "positive_calibration": 250,
+          "missed_positive": 250,
+          "unflagged_calibration": 1278,
+          "miss_fraction_upper": 1.0,
+          "unflagged_positive_upper": 0.2359343220374292
+        },
+        {
+          "threshold": 0.9750000000000001,
+          "positive_calibration": 250,
+          "missed_positive": 250,
+          "unflagged_calibration": 1278,
+          "miss_fraction_upper": 1.0,
+          "unflagged_positive_upper": 0.2359343220374292
+        },
+        {
+          "threshold": 1.0,
+          "positive_calibration": 250,
+          "missed_positive": 250,
+          "unflagged_calibration": 1278,
+          "miss_fraction_upper": 1.0,
+          "unflagged_positive_upper": 0.2359343220374292
+        }
+      ],
+      "selected": null
+    },
+    "max_mean": {
+      "family": 164,
+      "delta": 0.05,
+      "target": 0.1,
+      "candidates": [
+        {
+          "threshold": 0.0,
+          "positive_calibration": 250,
+          "missed_positive": 0,
+          "unflagged_calibration": 0,
+          "miss_fraction_upper": 0.03186369900560136,
+          "unflagged_positive_upper": 1.0
+        },
+        {
+          "threshold": 0.025,
+          "positive_calibration": 250,
+          "missed_positive": 0,
+          "unflagged_calibration": 1,
+          "miss_fraction_upper": 0.03186369900560136,
+          "unflagged_positive_upper": 0.9996951219512196
+        },
+        {
+          "threshold": 0.05,
+          "positive_calibration": 250,
+          "missed_positive": 1,
+          "unflagged_calibration": 19,
+          "miss_fraction_upper": 0.041370955953793434,
+          "unflagged_positive_upper": 0.43490011881960544
+        },
+        {
+          "threshold": 0.07500000000000001,
+          "positive_calibration": 250,
+          "missed_positive": 2,
+          "unflagged_calibration": 51,
+          "miss_fraction_upper": 0.049469617841794114,
+          "unflagged_positive_upper": 0.22337335368958433
+        },
+        {
+          "threshold": 0.1,
+          "positive_calibration": 250,
+          "missed_positive": 5,
+          "unflagged_calibration": 87,
+          "miss_fraction_upper": 0.07045978391836914,
+          "unflagged_positive_upper": 0.19276952242169562
+        },
+        {
+          "threshold": 0.125,
+          "positive_calibration": 250,
+          "missed_positive": 10,
+          "unflagged_calibration": 120,
+          "miss_fraction_upper": 0.10085527968496864,
+          "unflagged_positive_upper": 0.20284113270584614
+        },
+        {
+          "threshold": 0.15000000000000002,
+          "positive_calibration": 250,
+          "missed_positive": 11,
+          "unflagged_calibration": 160,
+          "miss_fraction_upper": 0.10656660770588487,
+          "unflagged_positive_upper": 0.1633988659889915
+        },
+        {
+          "threshold": 0.17500000000000002,
+          "positive_calibration": 250,
+          "missed_positive": 14,
+          "unflagged_calibration": 196,
+          "miss_fraction_upper": 0.12321580802486554,
+          "unflagged_positive_upper": 0.1555895460098972
+        },
+        {
+          "threshold": 0.2,
+          "positive_calibration": 250,
+          "missed_positive": 17,
+          "unflagged_calibration": 241,
+          "miss_fraction_upper": 0.13928990044095638,
+          "unflagged_positive_upper": 0.14428007373682186
+        },
+        {
+          "threshold": 0.225,
+          "positive_calibration": 250,
+          "missed_positive": 17,
+          "unflagged_calibration": 261,
+          "miss_fraction_upper": 0.13928990044095638,
+          "unflagged_positive_upper": 0.13364002267915343
+        },
+        {
+          "threshold": 0.25,
+          "positive_calibration": 250,
+          "missed_positive": 18,
+          "unflagged_calibration": 281,
+          "miss_fraction_upper": 0.14454424811472272,
+          "unflagged_positive_upper": 0.12916745109543243
+        },
+        {
+          "threshold": 0.275,
+          "positive_calibration": 250,
+          "missed_positive": 19,
+          "unflagged_calibration": 325,
+          "miss_fraction_upper": 0.149753081131577,
+          "unflagged_positive_upper": 0.11628554009987202
+        },
+        {
+          "threshold": 0.30000000000000004,
+          "positive_calibration": 250,
+          "missed_positive": 25,
+          "unflagged_calibration": 378,
+          "miss_fraction_upper": 0.18020111785666545,
+          "unflagged_positive_upper": 0.1210343677780527
+        },
+        {
+          "threshold": 0.325,
+          "positive_calibration": 250,
+          "missed_positive": 29,
+          "unflagged_calibration": 439,
+          "miss_fraction_upper": 0.1998764329440662,
+          "unflagged_positive_upper": 0.1162241154909936
+        },
+        {
+          "threshold": 0.35000000000000003,
+          "positive_calibration": 250,
+          "missed_positive": 38,
+          "unflagged_calibration": 489,
+          "miss_fraction_upper": 0.24278271936236603,
+          "unflagged_positive_upper": 0.1274755176130658
+        },
+        {
+          "threshold": 0.375,
+          "positive_calibration": 250,
+          "missed_positive": 42,
+          "unflagged_calibration": 536,
+          "miss_fraction_upper": 0.2613611043534898,
+          "unflagged_positive_upper": 0.125671036739262
+        },
+        {
+          "threshold": 0.4,
+          "positive_calibration": 250,
+          "missed_positive": 46,
+          "unflagged_calibration": 571,
+          "miss_fraction_upper": 0.27968643214283606,
+          "unflagged_positive_upper": 0.12661897529730753
+        },
+        {
+          "threshold": 0.42500000000000004,
+          "positive_calibration": 250,
+          "missed_positive": 49,
+          "unflagged_calibration": 601,
+          "miss_fraction_upper": 0.2932796451697821,
+          "unflagged_positive_upper": 0.1264407588039577
+        },
+        {
+          "threshold": 0.45,
+          "positive_calibration": 250,
+          "missed_positive": 51,
+          "unflagged_calibration": 625,
+          "miss_fraction_upper": 0.3022749630627397,
+          "unflagged_positive_upper": 0.12552472238685547
+        },
+        {
+          "threshold": 0.47500000000000003,
+          "positive_calibration": 250,
+          "missed_positive": 55,
+          "unflagged_calibration": 643,
+          "miss_fraction_upper": 0.3201153303216121,
+          "unflagged_positive_upper": 0.12948723263349224
+        },
+        {
+          "threshold": 0.5,
+          "positive_calibration": 250,
+          "missed_positive": 59,
+          "unflagged_calibration": 660,
+          "miss_fraction_upper": 0.33776814758233215,
+          "unflagged_positive_upper": 0.13338522176667678
+        },
+        {
+          "threshold": 0.525,
+          "positive_calibration": 250,
+          "missed_positive": 68,
+          "unflagged_calibration": 714,
+          "miss_fraction_upper": 0.37686570950732623,
+          "unflagged_positive_upper": 0.13828300950832598
+        },
+        {
+          "threshold": 0.55,
+          "positive_calibration": 250,
+          "missed_positive": 76,
+          "unflagged_calibration": 760,
+          "miss_fraction_upper": 0.41096810323355215,
+          "unflagged_positive_upper": 0.1422995732826954
+        },
+        {
+          "threshold": 0.5750000000000001,
+          "positive_calibration": 250,
+          "missed_positive": 87,
+          "unflagged_calibration": 806,
+          "miss_fraction_upper": 0.4569647839731944,
+          "unflagged_positive_upper": 0.15002010187091733
+        },
+        {
+          "threshold": 0.6000000000000001,
+          "positive_calibration": 250,
+          "missed_positive": 92,
+          "unflagged_calibration": 835,
+          "miss_fraction_upper": 0.4775553345686549,
+          "unflagged_positive_upper": 0.15174936443837292
+        },
+        {
+          "threshold": 0.625,
+          "positive_calibration": 250,
+          "missed_positive": 104,
+          "unflagged_calibration": 870,
+          "miss_fraction_upper": 0.526216843278323,
+          "unflagged_positive_upper": 0.1613867244151309
+        },
+        {
+          "threshold": 0.65,
+          "positive_calibration": 250,
+          "missed_positive": 115,
+          "unflagged_calibration": 915,
+          "miss_fraction_upper": 0.5699284748391925,
+          "unflagged_positive_upper": 0.16712397801992374
+        },
+        {
+          "threshold": 0.675,
+          "positive_calibration": 250,
+          "missed_positive": 126,
+          "unflagged_calibration": 955,
+          "miss_fraction_upper": 0.6128127302308961,
+          "unflagged_positive_upper": 0.17312772708132326
+        },
+        {
+          "threshold": 0.7000000000000001,
+          "positive_calibration": 250,
+          "missed_positive": 135,
+          "unflagged_calibration": 1007,
+          "miss_fraction_upper": 0.6472900117332105,
+          "unflagged_positive_upper": 0.1743102782473261
+        },
+        {
+          "threshold": 0.7250000000000001,
+          "positive_calibration": 250,
+          "missed_positive": 146,
+          "unflagged_calibration": 1040,
+          "miss_fraction_upper": 0.6886747825239761,
+          "unflagged_positive_upper": 0.18058769386576645
+        },
+        {
+          "threshold": 0.75,
+          "positive_calibration": 250,
+          "missed_positive": 161,
+          "unflagged_calibration": 1084,
+          "miss_fraction_upper": 0.7437174291878801,
+          "unflagged_positive_upper": 0.18862512307174592
+        },
+        {
+          "threshold": 0.775,
+          "positive_calibration": 250,
+          "missed_positive": 168,
+          "unflagged_calibration": 1110,
+          "miss_fraction_upper": 0.7688196576033107,
+          "unflagged_positive_upper": 0.1912064544818916
+        },
+        {
+          "threshold": 0.8,
+          "positive_calibration": 250,
+          "missed_positive": 178,
+          "unflagged_calibration": 1141,
+          "miss_fraction_upper": 0.8039763487321241,
+          "unflagged_positive_upper": 0.19568977407488033
+        },
+        {
+          "threshold": 0.8250000000000001,
+          "positive_calibration": 250,
+          "missed_positive": 188,
+          "unflagged_calibration": 1170,
+          "miss_fraction_upper": 0.8382179947310755,
+          "unflagged_positive_upper": 0.2002428327956705
+        },
+        {
+          "threshold": 0.8500000000000001,
+          "positive_calibration": 250,
+          "missed_positive": 204,
+          "unflagged_calibration": 1194,
+          "miss_fraction_upper": 0.8907228574814703,
+          "unflagged_positive_upper": 0.21081646766336198
+        },
+        {
+          "threshold": 0.875,
+          "positive_calibration": 250,
+          "missed_positive": 215,
+          "unflagged_calibration": 1214,
+          "miss_fraction_upper": 0.9247143680386011,
+          "unflagged_positive_upper": 0.2171932368667841
+        },
+        {
+          "threshold": 0.9,
+          "positive_calibration": 250,
+          "missed_positive": 219,
+          "unflagged_calibration": 1232,
+          "miss_fraction_upper": 0.9365126782963545,
+          "unflagged_positive_upper": 0.21758995839295303
+        },
+        {
+          "threshold": 0.925,
+          "positive_calibration": 250,
+          "missed_positive": 230,
+          "unflagged_calibration": 1248,
+          "miss_fraction_upper": 0.9667865186594298,
+          "unflagged_positive_upper": 0.224331821072237
+        },
+        {
+          "threshold": 0.9500000000000001,
+          "positive_calibration": 250,
+          "missed_positive": 240,
+          "unflagged_calibration": 1265,
+          "miss_fraction_upper": 0.9897439326879869,
+          "unflagged_positive_upper": 0.22985624102338376
+        },
+        {
+          "threshold": 0.9750000000000001,
+          "positive_calibration": 250,
+          "missed_positive": 249,
+          "unflagged_calibration": 1277,
+          "miss_fraction_upper": 0.9999987803026097,
+          "unflagged_positive_upper": 0.23527900917393324
+        },
+        {
+          "threshold": 1.0,
+          "positive_calibration": 250,
+          "missed_positive": 250,
+          "unflagged_calibration": 1278,
+          "miss_fraction_upper": 1.0,
+          "unflagged_positive_upper": 0.2359343220374292
+        }
+      ],
+      "selected": null
+    }
+  }
+}

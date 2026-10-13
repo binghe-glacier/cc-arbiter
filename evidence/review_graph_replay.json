@@ -1,0 +1,30 @@
+[
+  {
+    "method": "stacker",
+    "scheduler": "batched",
+    "patients": 1279,
+    "flagged": 1279,
+    "mismatches": 0
+  },
+  {
+    "method": "stacker",
+    "scheduler": "sequential",
+    "patients": 1279,
+    "flagged": 1279,
+    "mismatches": 0
+  },
+  {
+    "method": "max_mean",
+    "scheduler": "batched",
+    "patients": 1279,
+    "flagged": 1279,
+    "mismatches": 0
+  },
+  {
+    "method": "max_mean",
+    "scheduler": "sequential",
+    "patients": 1279,
+    "flagged": 1279,
+    "mismatches": 0
+  }
+]

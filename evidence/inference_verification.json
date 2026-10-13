@@ -1,0 +1,294 @@
+{
+  "images_checked": 16,
+  "records": [
+    {
+      "dataset": "nih",
+      "id": "pid5721",
+      "mode": "L",
+      "original_size": [
+        1024,
+        1024
+      ],
+      "grayscale_range": [
+        0,
+        228
+      ],
+      "normalized_range": [
+        -979.131103515625,
+        716.7083740234375
+      ],
+      "max_single_vs_batch_difference": 2.980232238769531e-07
+    },
+    {
+      "dataset": "nih",
+      "id": "pid30206",
+      "mode": "L",
+      "original_size": [
+        1024,
+        1024
+      ],
+      "grayscale_range": [
+        0,
+        255
+      ],
+      "normalized_range": [
+        -1023.5816040039062,
+        842.2646484375
+      ],
+      "max_single_vs_batch_difference": 1.7881393432617188e-07
+    },
+    {
+      "dataset": "nih",
+      "id": "pid16019",
+      "mode": "L",
+      "original_size": [
+        1024,
+        1024
+      ],
+      "grayscale_range": [
+        0,
+        255
+      ],
+      "normalized_range": [
+        -1024.0,
+        976.577880859375
+      ],
+      "max_single_vs_batch_difference": 1.1920928955078125e-07
+    },
+    {
+      "dataset": "nih",
+      "id": "pid15420",
+      "mode": "L",
+      "original_size": [
+        1024,
+        1024
+      ],
+      "grayscale_range": [
+        0,
+        255
+      ],
+      "normalized_range": [
+        -1024.0,
+        909.4893798828125
+      ],
+      "max_single_vs_batch_difference": 1.341104507446289e-07
+    },
+    {
+      "dataset": "nih",
+      "id": "pid10508",
+      "mode": "L",
+      "original_size": [
+        1024,
+        1024
+      ],
+      "grayscale_range": [
+        0,
+        255
+      ],
+      "normalized_range": [
+        -1024.0,
+        1023.832763671875
+      ],
+      "max_single_vs_batch_difference": 1.341104507446289e-07
+    },
+    {
+      "dataset": "nih",
+      "id": "pid16251",
+      "mode": "L",
+      "original_size": [
+        1024,
+        1024
+      ],
+      "grayscale_range": [
+        0,
+        255
+      ],
+      "normalized_range": [
+        -1024.0,
+        995.30322265625
+      ],
+      "max_single_vs_batch_difference": 1.1920928955078125e-07
+    },
+    {
+      "dataset": "nih",
+      "id": "pid20204",
+      "mode": "L",
+      "original_size": [
+        1024,
+        1024
+      ],
+      "grayscale_range": [
+        0,
+        255
+      ],
+      "normalized_range": [
+        -1023.9992065429688,
+        622.0466918945312
+      ],
+      "max_single_vs_batch_difference": 1.1920928955078125e-07
+    },
+    {
+      "dataset": "nih",
+      "id": "pid26969",
+      "mode": "L",
+      "original_size": [
+        1024,
+        1024
+      ],
+      "grayscale_range": [
+        0,
+        245
+      ],
+      "normalized_range": [
+        -1024.0,
+        900.78076171875
+      ],
+      "max_single_vs_batch_difference": 2.086162567138672e-07
+    },
+    {
+      "dataset": "iu",
+      "id": "CXR3989",
+      "mode": "RGB",
+      "original_size": [
+        512,
+        511
+      ],
+      "grayscale_range": [
+        0,
+        245
+      ],
+      "normalized_range": [
+        -1024.0,
+        919.9589233398438
+      ],
+      "max_single_vs_batch_difference": 2.980232238769531e-07
+    },
+    {
+      "dataset": "iu",
+      "id": "CXR3579",
+      "mode": "RGB",
+      "original_size": [
+        512,
+        513
+      ],
+      "grayscale_range": [
+        0,
+        255
+      ],
+      "normalized_range": [
+        -1024.0,
+        867.6819458007812
+      ],
+      "max_single_vs_batch_difference": 9.5367431640625e-07
+    },
+    {
+      "dataset": "iu",
+      "id": "CXR1879",
+      "mode": "RGB",
+      "original_size": [
+        512,
+        518
+      ],
+      "grayscale_range": [
+        0,
+        241
+      ],
+      "normalized_range": [
+        -1024.0,
+        845.322021484375
+      ],
+      "max_single_vs_batch_difference": 2.682209014892578e-07
+    },
+    {
+      "dataset": "iu",
+      "id": "CXR1812",
+      "mode": "RGB",
+      "original_size": [
+        512,
+        420
+      ],
+      "grayscale_range": [
+        12,
+        251
+      ],
+      "normalized_range": [
+        -700.443115234375,
+        416.8111572265625
+      ],
+      "max_single_vs_batch_difference": 1.6391277313232422e-07
+    },
+    {
+      "dataset": "iu",
+      "id": "CXR1052",
+      "mode": "RGB",
+      "original_size": [
+        512,
+        450
+      ],
+      "grayscale_range": [
+        0,
+        255
+      ],
+      "normalized_range": [
+        -1024.0,
+        844.693115234375
+      ],
+      "max_single_vs_batch_difference": 9.834766387939453e-07
+    },
+    {
+      "dataset": "iu",
+      "id": "CXR1900",
+      "mode": "RGB",
+      "original_size": [
+        512,
+        512
+      ],
+      "grayscale_range": [
+        0,
+        244
+      ],
+      "normalized_range": [
+        -1024.0,
+        914.1455688476562
+      ],
+      "max_single_vs_batch_difference": 5.364418029785156e-07
+    },
+    {
+      "dataset": "iu",
+      "id": "CXR2504",
+      "mode": "RGB",
+      "original_size": [
+        512,
+        624
+      ],
+      "grayscale_range": [
+        0,
+        252
+      ],
+      "normalized_range": [
+        -1010.781005859375,
+        445.4146423339844
+      ],
+      "max_single_vs_batch_difference": 1.341104507446289e-07
+    },
+    {
+      "dataset": "iu",
+      "id": "CXR3230",
+      "mode": "RGB",
+      "original_size": [
+        512,
+        624
+      ],
+      "grayscale_range": [
+        0,
+        232
+      ],
+      "normalized_range": [
+        -1014.766357421875,
+        463.7626647949219
+      ],
+      "max_single_vs_batch_difference": 2.086162567138672e-07
+    }
+  ],
+  "tolerance_review_required": false
+}

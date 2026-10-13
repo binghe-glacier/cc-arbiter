@@ -1,0 +1,83 @@
+\subsection*{NIH original test}
+\begin{center}\small\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llrrr}\toprule
+Finding & Score & Positive $n$ & AUROC [95\% CI] & AP [95\% CI]\\\midrule
+Atelectasis & CheXpert & 64 & 0.648 [0.584, 0.710] & 0.145 [0.108, 0.212] \\
+ & MIMIC &  & 0.676 [0.604, 0.739] & 0.211 [0.148, 0.321] \\
+ & Mean &  & 0.672 [0.606, 0.736] & 0.194 [0.132, 0.296] \\
+Cardiomegaly & CheXpert & 18 & 0.722 [0.613, 0.818] & 0.064 [0.032, 0.148] \\
+ & MIMIC &  & 0.683 [0.577, 0.775] & 0.048 [0.027, 0.082] \\
+ & Mean &  & 0.725 [0.618, 0.819] & 0.056 [0.032, 0.104] \\
+Consolidation & CheXpert & 21 & 0.676 [0.570, 0.771] & 0.071 [0.033, 0.193] \\
+ & MIMIC &  & 0.679 [0.567, 0.779] & 0.067 [0.035, 0.144] \\
+ & Mean &  & 0.703 [0.609, 0.786] & 0.075 [0.035, 0.188] \\
+Edema & CheXpert & 19 & 0.810 [0.731, 0.883] & 0.103 [0.055, 0.221] \\
+ & MIMIC &  & 0.799 [0.712, 0.882] & 0.128 [0.060, 0.300] \\
+ & Mean &  & 0.839 [0.773, 0.900] & 0.145 [0.068, 0.333] \\
+Effusion & CheXpert & 71 & 0.776 [0.725, 0.826] & 0.253 [0.190, 0.350] \\
+ & MIMIC &  & 0.772 [0.722, 0.820] & 0.301 [0.218, 0.425] \\
+ & Mean &  & 0.787 [0.739, 0.832] & 0.299 [0.220, 0.408] \\
+Pneumonia & CheXpert & 9 & 0.702 [0.564, 0.845] & 0.031 [0.013, 0.082] \\
+ & MIMIC &  & 0.676 [0.469, 0.857] & 0.037 [0.013, 0.115] \\
+ & Mean &  & 0.703 [0.500, 0.871] & 0.038 [0.015, 0.105] \\
+Pneumothorax & CheXpert & 30 & 0.706 [0.607, 0.794] & 0.139 [0.064, 0.256] \\
+ & MIMIC &  & 0.615 [0.516, 0.709] & 0.113 [0.048, 0.232] \\
+ & Mean &  & 0.714 [0.612, 0.801] & 0.161 [0.072, 0.300] \\
+\bottomrule\end{tabular}\end{center}
+\noindent Denominator: 636 units. AP is average precision. Its prevalence reference and valid bootstrap counts are available in JSON. Intervals are pointwise.
+\clearpage
+\subsection*{IU original test}
+\begin{center}\small\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llrrr}\toprule
+Finding & Score & Positive $n$ & AUROC [95\% CI] & AP [95\% CI]\\\midrule
+Atelectasis & CheXpert & 68 & 0.633 [0.569, 0.691] & 0.130 [0.087, 0.196] \\
+ & MIMIC &  & 0.638 [0.569, 0.704] & 0.158 [0.101, 0.248] \\
+ & Mean &  & 0.670 [0.604, 0.729] & 0.165 [0.104, 0.250] \\
+Cardiomegaly & CheXpert & 73 & 0.691 [0.624, 0.751] & 0.168 [0.123, 0.241] \\
+ & MIMIC &  & 0.589 [0.518, 0.654] & 0.114 [0.083, 0.167] \\
+ & Mean &  & 0.681 [0.618, 0.738] & 0.156 [0.114, 0.227] \\
+Consolidation & CheXpert & 8 & 0.548 [0.302, 0.767] & 0.013 [0.005, 0.038] \\
+ & MIMIC &  & 0.736 [0.512, 0.929] & 0.062 [0.012, 0.207] \\
+ & Mean &  & 0.629 [0.372, 0.868] & 0.056 [0.006, 0.227] \\
+Edema & CheXpert & 7 & 0.732 [0.434, 0.900] & 0.023 [0.008, 0.057] \\
+ & MIMIC &  & 0.750 [0.457, 0.922] & 0.057 [0.009, 0.313] \\
+ & Mean &  & 0.781 [0.468, 0.944] & 0.076 [0.011, 0.391] \\
+Effusion & CheXpert & 26 & 0.690 [0.598, 0.773] & 0.051 [0.031, 0.087] \\
+ & MIMIC &  & 0.661 [0.554, 0.763] & 0.116 [0.040, 0.248] \\
+ & Mean &  & 0.700 [0.608, 0.789] & 0.089 [0.041, 0.211] \\
+Pneumonia & CheXpert & 8 & 0.608 [0.478, 0.756] & 0.026 [0.005, 0.151] \\
+ & MIMIC &  & 0.615 [0.445, 0.804] & 0.043 [0.006, 0.263] \\
+ & Mean &  & 0.674 [0.548, 0.814] & 0.022 [0.006, 0.102] \\
+Pneumothorax & CheXpert & 3 & 0.564 [0.000, 0.972] & 0.015 [0.001, 0.086] \\
+ & MIMIC &  & 0.384 [0.205, 0.673] & 0.004 [0.001, 0.011] \\
+ & Mean &  & 0.538 [0.006, 0.924] & 0.008 [0.001, 0.040] \\
+\bottomrule\end{tabular}\end{center}
+\noindent Denominator: 887 units. AP is average precision. Its prevalence reference and valid bootstrap counts are available in JSON. Intervals are pointwise.
+\subsection*{NIH new patients}
+\begin{center}\small\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llrrr}\toprule
+Finding & Score & Positive $n$ & AUROC [95\% CI] & AP [95\% CI]\\\midrule
+Atelectasis & CheXpert & 158 & 0.665 [0.623, 0.706] & 0.165 [0.134, 0.214] \\
+ & MIMIC &  & 0.662 [0.618, 0.706] & 0.170 [0.137, 0.217] \\
+ & Mean &  & 0.673 [0.629, 0.715] & 0.171 [0.139, 0.220] \\
+Cardiomegaly & CheXpert & 30 & 0.772 [0.698, 0.837] & 0.052 [0.031, 0.091] \\
+ & MIMIC &  & 0.718 [0.637, 0.787] & 0.060 [0.026, 0.154] \\
+ & Mean &  & 0.771 [0.699, 0.833] & 0.069 [0.031, 0.167] \\
+Consolidation & CheXpert & 49 & 0.782 [0.719, 0.838] & 0.111 [0.064, 0.188] \\
+ & MIMIC &  & 0.703 [0.630, 0.772] & 0.093 [0.049, 0.174] \\
+ & Mean &  & 0.785 [0.718, 0.843] & 0.107 [0.068, 0.196] \\
+Edema & CheXpert & 28 & 0.850 [0.800, 0.891] & 0.060 [0.038, 0.096] \\
+ & MIMIC &  & 0.822 [0.751, 0.885] & 0.098 [0.048, 0.202] \\
+ & Mean &  & 0.873 [0.823, 0.917] & 0.127 [0.061, 0.270] \\
+Effusion & CheXpert & 153 & 0.797 [0.762, 0.831] & 0.255 [0.208, 0.321] \\
+ & MIMIC &  & 0.811 [0.779, 0.843] & 0.325 [0.259, 0.404] \\
+ & Mean &  & 0.819 [0.785, 0.850] & 0.310 [0.250, 0.383] \\
+Pneumonia & CheXpert & 27 & 0.707 [0.611, 0.795] & 0.042 [0.023, 0.100] \\
+ & MIMIC &  & 0.668 [0.544, 0.782] & 0.041 [0.021, 0.083] \\
+ & Mean &  & 0.700 [0.579, 0.806] & 0.043 [0.024, 0.086] \\
+Pneumothorax & CheXpert & 62 & 0.727 [0.661, 0.790] & 0.132 [0.082, 0.232] \\
+ & MIMIC &  & 0.693 [0.628, 0.753] & 0.103 [0.064, 0.179] \\
+ & Mean &  & 0.746 [0.680, 0.809] & 0.161 [0.101, 0.268] \\
+\bottomrule\end{tabular}\end{center}
+\noindent Denominator: 1,582 units. AP is average precision. Its prevalence reference and valid bootstrap counts are available in JSON. Intervals are pointwise.
+\clearpage

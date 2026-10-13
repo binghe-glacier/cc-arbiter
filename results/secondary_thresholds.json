@@ -1,0 +1,118 @@
+{
+  "nih": [
+    {
+      "label": "Atelectasis",
+      "youden": 0.45619311928749084,
+      "minimum_error": 0.9580047428607942,
+      "positive_calibration": 84,
+      "negative_calibration": 762,
+      "missing_class_fallback": false
+    },
+    {
+      "label": "Cardiomegaly",
+      "youden": 0.5866997838020325,
+      "minimum_error": 0.9749902486801149,
+      "positive_calibration": 18,
+      "negative_calibration": 828,
+      "missing_class_fallback": false
+    },
+    {
+      "label": "Consolidation",
+      "youden": 0.4521217495203018,
+      "minimum_error": 0.8696136474609376,
+      "positive_calibration": 28,
+      "negative_calibration": 818,
+      "missing_class_fallback": false
+    },
+    {
+      "label": "Edema",
+      "youden": 0.6224807500839233,
+      "minimum_error": 0.9386334717273713,
+      "positive_calibration": 17,
+      "negative_calibration": 829,
+      "missing_class_fallback": false
+    },
+    {
+      "label": "Effusion",
+      "youden": 0.4481424540281296,
+      "minimum_error": 0.958383321762085,
+      "positive_calibration": 81,
+      "negative_calibration": 765,
+      "missing_class_fallback": false
+    },
+    {
+      "label": "Pneumonia",
+      "youden": 0.3060642722994089,
+      "minimum_error": 0.7187422513961793,
+      "positive_calibration": 16,
+      "negative_calibration": 830,
+      "missing_class_fallback": false
+    },
+    {
+      "label": "Pneumothorax",
+      "youden": 0.36772847175598145,
+      "minimum_error": 0.696752041578293,
+      "positive_calibration": 43,
+      "negative_calibration": 803,
+      "missing_class_fallback": false
+    }
+  ],
+  "iu": [
+    {
+      "label": "Atelectasis",
+      "youden": 0.7918627858161926,
+      "minimum_error": 0.9157038927078247,
+      "positive_calibration": 97,
+      "negative_calibration": 1085,
+      "missing_class_fallback": false
+    },
+    {
+      "label": "Cardiomegaly",
+      "youden": 0.7712785601615906,
+      "minimum_error": 0.9193286895751953,
+      "positive_calibration": 98,
+      "negative_calibration": 1084,
+      "missing_class_fallback": false
+    },
+    {
+      "label": "Consolidation",
+      "youden": 0.6323860287666321,
+      "minimum_error": 0.883514702320099,
+      "positive_calibration": 9,
+      "negative_calibration": 1173,
+      "missing_class_fallback": false
+    },
+    {
+      "label": "Edema",
+      "youden": 0.6694238483905792,
+      "minimum_error": 0.9384469091892242,
+      "positive_calibration": 12,
+      "negative_calibration": 1170,
+      "missing_class_fallback": false
+    },
+    {
+      "label": "Effusion",
+      "youden": 0.7243034839630127,
+      "minimum_error": 0.9739731550216675,
+      "positive_calibration": 45,
+      "negative_calibration": 1137,
+      "missing_class_fallback": false
+    },
+    {
+      "label": "Pneumonia",
+      "youden": 0.5857143402099609,
+      "minimum_error": 0.7570755481719972,
+      "positive_calibration": 14,
+      "negative_calibration": 1168,
+      "missing_class_fallback": false
+    },
+    {
+      "label": "Pneumothorax",
+      "youden": 0.5126928389072418,
+      "minimum_error": 0.7038279771804811,
+      "positive_calibration": 8,
+      "negative_calibration": 1174,
+      "missing_class_fallback": false
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "source_rows": 2244,
+  "source_unique_patients": 1966,
+  "prior_patients": 2116,
+  "overlapping_patients_excluded": 384,
+  "overlapping_patient_rows_excluded": 502,
+  "prior_image_hash_rows_excluded": 0,
+  "cross_patient_duplicate_images_excluded": 0,
+  "selected_patients": 1582,
+  "discarded_additional_views": 160,
+  "positive_targets": [
+    158,
+    30,
+    49,
+    28,
+    153,
+    27,
+    62
+  ],
+  "labels": [
+    "Atelectasis",
+    "Cardiomegaly",
+    "Consolidation",
+    "Edema",
+    "Effusion",
+    "Pneumonia",
+    "Pneumothorax"
+  ],
+  "patient_overlap_after_exclusion": 0,
+  "selected_image_overlap_after_exclusion": 0,
+  "created_utc": "2026-10-09T00:04:21.104906+00:00",
+  "cohort_sha256": "abb876549369a7f6f9f8b534354d27fba44ae786cb892ea0e0abf22de04af7e7",
+  "enhancement_protocol_sha256": "6d7c2d499ed43c14129e6e5433b24d2de5bf524aa4200e68350993f7da802cfb"
+}

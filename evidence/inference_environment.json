@@ -1,0 +1,31 @@
+{
+  "models": [
+    {
+      "name": "densenet121-res224-chex",
+      "url": "https://github.com/mlmed/torchxrayvision/releases/download/v1/chex-densenet121-d121-tw-lr001-rot45-tr15-sc15-seed0-best.pt",
+      "sha256": "1a914ae802170187a4852e594708206c12468eeeefd66aa4e8e26141649d61a4",
+      "bytes": 28381998
+    },
+    {
+      "name": "densenet121-res224-mimic_ch",
+      "url": "https://github.com/mlmed/torchxrayvision/releases/download/v1/mimic_ch-densenet121-d121-tw-lr001-rot45-tr15-sc15-seed0-best.pt",
+      "sha256": "23b13a04459684ffa41247d068207a7657b4e1b4dec2b02431f5026bd75b1189",
+      "bytes": 28382012
+    }
+  ],
+  "torch": "2.13.0+cu126",
+  "torchxrayvision": "1.5.4",
+  "device": "NVIDIA GeForce RTX 4090",
+  "preprocessing": "PIL grayscale; normalize(maxval=255); XRayCenterCrop; XRayResizer(224,skimage); float32",
+  "operating_point_normalization": true,
+  "label_order": [
+    "Atelectasis",
+    "Cardiomegaly",
+    "Consolidation",
+    "Edema",
+    "Effusion",
+    "Pneumonia",
+    "Pneumothorax"
+  ],
+  "precision": "FP32; TF32 disabled; deterministic algorithms"
+}

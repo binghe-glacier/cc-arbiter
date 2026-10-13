@@ -1,0 +1,8 @@
+{
+  "units": 2557,
+  "seconds": 22.304728499992052,
+  "failures": [],
+  "weights_match_original": true,
+  "precision": "FP32; TF32 disabled; deterministic algorithms",
+  "score_sha256": "cd00c3909b6f55b8362ddd6dddee0418f3f7340067ad5ef9bd036832987f83c5"
+}

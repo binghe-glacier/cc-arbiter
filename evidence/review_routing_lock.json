@@ -1,0 +1,12 @@
+{
+  "created_utc": "2026-10-09T03:05:06.844134+00:00",
+  "new_shards_downloaded": false,
+  "previous_results_known": true,
+  "sha256": {
+    "REVIEW_ROUTING_PROTOCOL.md": "3b0dc30b2f2461291cf18569135f5febeef555e86410a92c07de84d7440ff3ca",
+    "data/cohorts.json": "bd730fdda350ded5b6e8715e83f704edf3f0efa9a3a425ca09608ccec89793ab",
+    "data/nih_replication_cohort.json": "abb876549369a7f6f9f8b534354d27fba44ae786cb892ea0e0abf22de04af7e7",
+    "data/unit_scores.jsonl": "3c1115de2d301646d14d092d63145449aa6adab954b0c73b0dfbd8e5c1996363",
+    "data/nih_replication_scores.jsonl": "0f1273e8167a4a53625872508473417e503e26368302543b4df13297e547d9c3"
+  }
+}

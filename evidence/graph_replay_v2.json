@@ -1,0 +1,612 @@
+{
+  "description": "Actual LangGraph execution with deterministic schedulers and fixed cached expert scores; no LLM accuracy or clinical evaluation.",
+  "datasets": {
+    "nih": {
+      "batched": {
+        "units": 636,
+        "label_outputs": 4452,
+        "mismatches": 0,
+        "released": 407,
+        "verified_expert_calls": 1272,
+        "median_ms": 1.12085000728257,
+        "p95_ms": 1.4717249941895716
+      },
+      "sequential": {
+        "units": 636,
+        "label_outputs": 4452,
+        "mismatches": 0,
+        "released": 407,
+        "verified_expert_calls": 1272,
+        "median_ms": 1.4477499935310334,
+        "p95_ms": 1.8278250063303858
+      }
+    },
+    "iu": {
+      "batched": {
+        "units": 887,
+        "label_outputs": 6209,
+        "mismatches": 0,
+        "released": 0,
+        "verified_expert_calls": 1774,
+        "median_ms": 1.3470000121742487,
+        "p95_ms": 2.3885799950221545
+      },
+      "sequential": {
+        "units": 887,
+        "label_outputs": 6209,
+        "mismatches": 0,
+        "released": 0,
+        "verified_expert_calls": 1774,
+        "median_ms": 2.4381999974139035,
+        "p95_ms": 3.1518099975073706
+      }
+    },
+    "nih_replication": {
+      "batched": {
+        "units": 1582,
+        "label_outputs": 11074,
+        "mismatches": 0,
+        "released": 1195,
+        "verified_expert_calls": 3164,
+        "median_ms": 1.3843500055372715,
+        "p95_ms": 2.2482500062324107
+      },
+      "sequential": {
+        "units": 1582,
+        "label_outputs": 11074,
+        "mismatches": 0,
+        "released": 1195,
+        "verified_expert_calls": 3164,
+        "median_ms": 1.5863000007811934,
+        "p95_ms": 2.764444983040447
+      }
+    }
+  },
+  "examples": [
+    {
+      "dataset": "nih",
+      "mode": "batched",
+      "output": {
+        "request_id": "nih:pid1000",
+        "image_key": "pid1000",
+        "target": "dataset_annotation",
+        "risk_target": 0.1,
+        "decisions": {
+          "Atelectasis": {
+            "action": "defer",
+            "value": null,
+            "reason": "uncertified_threshold",
+            "route": "review",
+            "expert_sets": [
+              [
+                0
+              ],
+              [
+                0
+              ]
+            ]
+          },
+          "Cardiomegaly": {
+            "action": "release",
+            "value": 0,
+            "reason": "certified_policy",
+            "route": "none",
+            "expert_sets": [
+              [
+                0
+              ],
+              [
+                0
+              ]
+            ]
+          },
+          "Consolidation": {
+            "action": "release",
+            "value": 0,
+            "reason": "certified_policy",
+            "route": "none",
+            "expert_sets": [
+              [
+                0
+              ],
+              [
+                0
+              ]
+            ]
+          },
+          "Edema": {
+            "action": "defer",
+            "value": null,
+            "reason": "uncertified_threshold",
+            "route": "review",
+            "expert_sets": [
+              [
+                0
+              ],
+              [
+                0
+              ]
+            ]
+          },
+          "Effusion": {
+            "action": "defer",
+            "value": null,
+            "reason": "uncertified_threshold",
+            "route": "review",
+            "expert_sets": [
+              [
+                0
+              ],
+              [
+                0
+              ]
+            ]
+          },
+          "Pneumonia": {
+            "action": "defer",
+            "value": null,
+            "reason": "uncertified_threshold",
+            "route": "review",
+            "expert_sets": [
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          },
+          "Pneumothorax": {
+            "action": "release",
+            "value": 0,
+            "reason": "certified_policy",
+            "route": "none",
+            "expert_sets": [
+              [
+                0,
+                1
+              ],
+              [
+                0
+              ]
+            ]
+          }
+        }
+      },
+      "trace": [
+        {
+          "expert": "chex",
+          "accepted": true,
+          "reason": "evidence_recorded",
+          "image_key": "pid1000"
+        },
+        {
+          "expert": "mimic",
+          "accepted": true,
+          "reason": "evidence_recorded",
+          "image_key": "pid1000"
+        },
+        {
+          "event": "final_gate",
+          "complete_evidence": true,
+          "released": 3
+        }
+      ]
+    },
+    {
+      "dataset": "nih",
+      "mode": "batched",
+      "output": {
+        "request_id": "nih:pid10046",
+        "image_key": "pid10046",
+        "target": "dataset_annotation",
+        "risk_target": 0.1,
+        "decisions": {
+          "Atelectasis": {
+            "action": "defer",
+            "value": null,
+            "reason": "set_not_singleton",
+            "route": "review",
+            "expert_sets": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          },
+          "Cardiomegaly": {
+            "action": "defer",
+            "value": null,
+            "reason": "set_not_singleton",
+            "route": "review",
+            "expert_sets": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          },
+          "Consolidation": {
+            "action": "defer",
+            "value": null,
+            "reason": "set_not_singleton",
+            "route": "review",
+            "expert_sets": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          },
+          "Edema": {
+            "action": "defer",
+            "value": null,
+            "reason": "set_not_singleton",
+            "route": "review",
+            "expert_sets": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          },
+          "Effusion": {
+            "action": "defer",
+            "value": null,
+            "reason": "set_not_singleton",
+            "route": "review",
+            "expert_sets": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          },
+          "Pneumonia": {
+            "action": "defer",
+            "value": null,
+            "reason": "uncertified_threshold",
+            "route": "review",
+            "expert_sets": [
+              [
+                0,
+                1
+              ],
+              [
+                1
+              ]
+            ]
+          },
+          "Pneumothorax": {
+            "action": "defer",
+            "value": null,
+            "reason": "set_not_singleton",
+            "route": "review",
+            "expert_sets": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          }
+        }
+      },
+      "trace": [
+        {
+          "expert": "chex",
+          "accepted": true,
+          "reason": "evidence_recorded",
+          "image_key": "pid10046"
+        },
+        {
+          "expert": "mimic",
+          "accepted": true,
+          "reason": "evidence_recorded",
+          "image_key": "pid10046"
+        },
+        {
+          "event": "final_gate",
+          "complete_evidence": true,
+          "released": 0
+        }
+      ]
+    },
+    {
+      "dataset": "nih",
+      "mode": "batched",
+      "output": {
+        "request_id": "nih:pid10066",
+        "image_key": "pid10066",
+        "target": "dataset_annotation",
+        "risk_target": 0.1,
+        "decisions": {
+          "Atelectasis": {
+            "action": "defer",
+            "value": null,
+            "reason": "set_not_singleton",
+            "route": "review",
+            "expert_sets": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          },
+          "Cardiomegaly": {
+            "action": "defer",
+            "value": null,
+            "reason": "uncertified_threshold",
+            "route": "review",
+            "expert_sets": [
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          },
+          "Consolidation": {
+            "action": "defer",
+            "value": null,
+            "reason": "uncertified_threshold",
+            "route": "review",
+            "expert_sets": [
+              [
+                0,
+                1
+              ],
+              [
+                1
+              ]
+            ]
+          },
+          "Edema": {
+            "action": "defer",
+            "value": null,
+            "reason": "set_not_singleton",
+            "route": "review",
+            "expert_sets": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          },
+          "Effusion": {
+            "action": "defer",
+            "value": null,
+            "reason": "set_not_singleton",
+            "route": "review",
+            "expert_sets": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          },
+          "Pneumonia": {
+            "action": "defer",
+            "value": null,
+            "reason": "uncertified_threshold",
+            "route": "review",
+            "expert_sets": [
+              [
+                0,
+                1
+              ],
+              [
+                1
+              ]
+            ]
+          },
+          "Pneumothorax": {
+            "action": "defer",
+            "value": null,
+            "reason": "uncertified_threshold",
+            "route": "review",
+            "expert_sets": [
+              [
+                0,
+                1
+              ],
+              [
+                1
+              ]
+            ]
+          }
+        }
+      },
+      "trace": [
+        {
+          "expert": "chex",
+          "accepted": true,
+          "reason": "evidence_recorded",
+          "image_key": "pid10066"
+        },
+        {
+          "expert": "mimic",
+          "accepted": true,
+          "reason": "evidence_recorded",
+          "image_key": "pid10066"
+        },
+        {
+          "event": "final_gate",
+          "complete_evidence": true,
+          "released": 0
+        }
+      ]
+    },
+    {
+      "dataset": "nih",
+      "mode": "batched",
+      "output": {
+        "request_id": "nih:pid10101",
+        "image_key": "pid10101",
+        "target": "dataset_annotation",
+        "risk_target": 0.1,
+        "decisions": {
+          "Atelectasis": {
+            "action": "defer",
+            "value": null,
+            "reason": "uncertified_threshold",
+            "route": "review",
+            "expert_sets": [
+              [
+                0
+              ],
+              [
+                0
+              ]
+            ]
+          },
+          "Cardiomegaly": {
+            "action": "release",
+            "value": 0,
+            "reason": "certified_policy",
+            "route": "none",
+            "expert_sets": [
+              [
+                0
+              ],
+              [
+                0
+              ]
+            ]
+          },
+          "Consolidation": {
+            "action": "release",
+            "value": 0,
+            "reason": "certified_policy",
+            "route": "none",
+            "expert_sets": [
+              [
+                0
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          },
+          "Edema": {
+            "action": "defer",
+            "value": null,
+            "reason": "uncertified_threshold",
+            "route": "review",
+            "expert_sets": [
+              [
+                0
+              ],
+              [
+                0
+              ]
+            ]
+          },
+          "Effusion": {
+            "action": "defer",
+            "value": null,
+            "reason": "uncertified_threshold",
+            "route": "review",
+            "expert_sets": [
+              [
+                0
+              ],
+              [
+                0
+              ]
+            ]
+          },
+          "Pneumonia": {
+            "action": "defer",
+            "value": null,
+            "reason": "set_not_singleton",
+            "route": "review",
+            "expert_sets": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                1
+              ]
+            ]
+          },
+          "Pneumothorax": {
+            "action": "release",
+            "value": 0,
+            "reason": "certified_policy",
+            "route": "none",
+            "expert_sets": [
+              [
+                0,
+                1
+              ],
+              [
+                0
+              ]
+            ]
+          }
+        }
+      },
+      "trace": [
+        {
+          "expert": "chex",
+          "accepted": true,
+          "reason": "evidence_recorded",
+          "image_key": "pid10101"
+        },
+        {
+          "expert": "mimic",
+          "accepted": true,
+          "reason": "evidence_recorded",
+          "image_key": "pid10101"
+        },
+        {
+          "event": "final_gate",
+          "complete_evidence": true,
+          "released": 3
+        }
+      ]
+    }
+  ]
+}

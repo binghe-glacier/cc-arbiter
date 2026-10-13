@@ -1,0 +1,21 @@
+{
+  "primary_protocol_scores_calibration_results_unchanged": true,
+  "secondary_rerun_exactly_matches": true,
+  "secondary_output_sha256": {
+    "results/secondary_results.json": "87945e34fb53d117ab01737db93fb02ee92d2aa4214f2241391a5fd9badeb059",
+    "results/secondary_thresholds.json": "abf84f61f4046064e553740e62fc0a1b915927a976ff7aa1e8ab8194d601edc9",
+    "results/nih_replication_decisions.jsonl": "81d1ef837f47e43ecf6d5204bbc9ba54a90c6f9d5177e0357c2a08664fe78b2b",
+    "results/secondary_policy_summary.csv": "cafda7f6307be8212fc087fe6344312faf01ccabc3ed70bb1c90077f4d6147bd"
+  },
+  "new_patients": 1582,
+  "new_patient_id_overlap": 0,
+  "new_selected_image_hash_overlap": 0,
+  "matched_budgets_equal_for_every_label": true,
+  "graph_invocations": 6210,
+  "graph_label_outputs": 43470,
+  "graph_mismatches": 0,
+  "new_scores_sha256": "0f1273e8167a4a53625872508473417e503e26368302543b4df13297e547d9c3",
+  "original_D_files_hash_verified": 4,
+  "original_tests": 18,
+  "additional_tests": 6
+}

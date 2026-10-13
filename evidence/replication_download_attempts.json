@@ -1,0 +1,56 @@
+[
+  {
+    "shard": 0,
+    "url": "https://huggingface.co/datasets/BahaaEldin0/NIH-Chest-Xray-14/resolve/efdd60f009509e6309d306f3681ac863b0c2fabb/default/test/0000.parquet",
+    "failed_attempts": [
+      {
+        "attempt": 1,
+        "error": "PermissionError"
+      },
+      {
+        "attempt": 2,
+        "error": "ConnectionError"
+      },
+      {
+        "attempt": 3,
+        "error": "SSLError"
+      },
+      {
+        "attempt": 4,
+        "error": "SSLError"
+      },
+      {
+        "attempt": 5,
+        "error": "SSLError"
+      }
+    ],
+    "status": "unavailable"
+  },
+  {
+    "shard": 1,
+    "url": "https://huggingface.co/datasets/BahaaEldin0/NIH-Chest-Xray-14/resolve/efdd60f009509e6309d306f3681ac863b0c2fabb/default/test/0001.parquet",
+    "failed_attempts": [
+      {
+        "attempt": 1,
+        "error": "PermissionError"
+      },
+      {
+        "attempt": 2,
+        "error": "ConnectionError"
+      },
+      {
+        "attempt": 3,
+        "error": "SSLError"
+      },
+      {
+        "attempt": 4,
+        "error": "SSLError"
+      },
+      {
+        "attempt": 5,
+        "error": "SSLError"
+      }
+    ],
+    "status": "unavailable"
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "timing": {
+    "nih": {
+      "images": 2116,
+      "units": 2116,
+      "seconds_including_preprocessing": 16.764343299990287
+    },
+    "iu": {
+      "images": 6088,
+      "units": 2955,
+      "seconds_including_preprocessing": 26.043462100002216
+    }
+  },
+  "failures": [],
+  "total_seconds": 44.05108800000744
+}

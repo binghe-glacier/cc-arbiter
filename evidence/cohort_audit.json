@@ -1,0 +1,109 @@
+{
+  "nih_sources": [
+    {
+      "path": "D:\\\u7481\u70d8\u6783\\MedRAX\\data\\chestxray14\\train-00000.parquet",
+      "bytes": 494904930,
+      "sha256": "fcc6727b5bb7d83f5294ef895b760a61d7e93779adbc759c970b73a86f2fc657",
+      "rows": 1229
+    },
+    {
+      "path": "D:\\\u7481\u70d8\u6783\\MedRAX\\data\\chestxray14\\train-00001.parquet",
+      "bytes": 494479861,
+      "sha256": "710d245c873865ede7f08571a1f74c1255abc3f94194bc07e633685392d12632",
+      "rows": 1229
+    }
+  ],
+  "iu_xml_reports": 3955,
+  "iu_reports_without_local_images": 1000,
+  "iu_local_image_reports": 2955,
+  "duplicate_units_removed": {
+    "nih": 0,
+    "iu": 0
+  },
+  "exclusions": [],
+  "summary": {
+    "nih": {
+      "conformal": {
+        "units": 846,
+        "images": 846,
+        "positives": [
+          84,
+          18,
+          28,
+          17,
+          81,
+          16,
+          43
+        ]
+      },
+      "risk": {
+        "units": 634,
+        "images": 634,
+        "positives": [
+          51,
+          14,
+          21,
+          12,
+          51,
+          5,
+          24
+        ]
+      },
+      "test": {
+        "units": 636,
+        "images": 636,
+        "positives": [
+          64,
+          18,
+          21,
+          19,
+          71,
+          9,
+          30
+        ]
+      }
+    },
+    "iu": {
+      "conformal": {
+        "units": 1182,
+        "images": 2435,
+        "positives": [
+          97,
+          98,
+          9,
+          12,
+          45,
+          14,
+          8
+        ]
+      },
+      "risk": {
+        "units": 886,
+        "images": 1827,
+        "positives": [
+          69,
+          70,
+          5,
+          12,
+          27,
+          10,
+          3
+        ]
+      },
+      "test": {
+        "units": 887,
+        "images": 1826,
+        "positives": [
+          68,
+          73,
+          8,
+          7,
+          26,
+          8,
+          3
+        ]
+      }
+    }
+  },
+  "iu_duplicate_images_within_report_removed": 3
+}

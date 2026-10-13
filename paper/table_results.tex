@@ -1,0 +1,23 @@
+\begin{tabular}{llrrrr}
+\toprule
+Dataset & Policy & Release (\%) & Errors / released & Risk (\%) & TP / positives\\
+\midrule
+NIH & Always negative & 100.0 & 232 / 4452 & 5.2 & 0 / 232\\
+NIH & CheXpert expert & 100.0 & 1863 / 4452 & 41.8 & 172 / 232\\
+NIH & MIMIC expert & 100.0 & 2599 / 4452 & 58.4 & 201 / 232\\
+NIH & Mean score & 100.0 & 1722 / 4452 & 38.7 & 175 / 232\\
+NIH & Expert agreement & 70.4 & 1573 / 3136 & 50.2 & 163 / 232\\
+NIH & CP intersection & 55.1 & 708 / 2454 & 28.9 & 95 / 232\\
+NIH & Risk gate (mean) & 23.8 & 45 / 1061 & 4.2 & 4 / 232\\
+NIH & CC-Arbiter & 9.1 & 10 / 407 & 2.5 & 3 / 232\\
+\midrule
+IU & Always negative & 100.0 & 193 / 6209 & 3.1 & 0 / 193\\
+IU & CheXpert expert & 100.0 & 4787 / 6209 & 77.1 & 184 / 193\\
+IU & MIMIC expert & 100.0 & 5693 / 6209 & 91.7 & 193 / 193\\
+IU & Mean score & 100.0 & 4798 / 6209 & 77.3 & 188 / 193\\
+IU & Expert agreement & 78.4 & 4570 / 4869 & 93.9 & 184 / 193\\
+IU & CP intersection & 41.0 & 1059 / 2548 & 41.6 & 69 / 193\\
+IU & Risk gate (mean) & 5.2 & 7 / 322 & 2.2 & 0 / 193\\
+IU & CC-Arbiter & 0.0 & 0 / 0 & -- & 0 / 193\\
+\bottomrule
+\end{tabular}

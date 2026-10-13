@@ -1,0 +1,21 @@
+{
+  "review_rerun_exactly_matches": true,
+  "review_output_sha256": {
+    "results/review_results.json": "7faf08451f88655e647fc798a3552cbb7bcb8e37fc05f5c437ccccf72906af18",
+    "results/review_stacker.json": "8b4be09eeec42f2068e12101c7db4d9571af1f64ce491a2a0fba973752e25135",
+    "results/review_decisions.jsonl": "f55d760d7f19d2885ef03ff71bc976b14557afaed82023377cc7c752105f656e",
+    "results/review_candidate_bounds.csv": "0905b20c09015f10bf2a388012fd6a4079ad57c01ec1e3e6914d45392e7de724",
+    "results/positive_attrition.json": "4d901dfea60b826e87419a5c7debdd00501eb3467fa95495272096c039235578"
+  },
+  "earlier_locked_results_unchanged": true,
+  "new_routing_patients": 2557,
+  "routing_calibration_patients": 1278,
+  "routing_test_patients": 1279,
+  "overlap_with_all_3698_previous_NIH_patients": 0,
+  "risk_test_patient_overlap": 0,
+  "previous_selected_image_overlap": 0,
+  "routing_graph_invocations": 5116,
+  "routing_graph_mismatches": 0,
+  "passed_tests": 31,
+  "original_files_verified": 4
+}

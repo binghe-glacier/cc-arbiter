@@ -1,0 +1,169 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{amsmath,amssymb,graphicx,booktabs,hyperref}
+\hypersetup{hidelinks}
+\renewcommand{\rmdefault}{ptm}\renewcommand{\sfdefault}{phv}
+\renewcommand{\ttdefault}{phv}
+\input{fonts.tex}
+\DeclareMathSizes{12}{10}{7}{5}
+\DeclareMathSizes{9}{10}{7}{5}
+\makeatletter\renewcommand\normalsize{\@setfontsize\normalsize{12}{15}}\makeatother
+\normalsize
+\setlength{\textwidth}{166mm}\setlength{\textheight}{242mm}
+\setlength{\oddsidemargin}{-3mm}\setlength{\evensidemargin}{-3mm}\setlength{\topmargin}{-15mm}
+\setlength{\parskip}{4pt}\setlength{\emergencystretch}{2em}
+\title{Additional file 1: Methods, proof, cohort composition and detailed results\\[5pt]\large Auditing selective release of chest radiograph findings: retrospective evaluation of CC-Arbiter}
+\author{Yaocong Yang and Xiangyong Kong}\date{}
+\begin{document}\maketitle
+\section{Exact scope of the statistical assertion}
+Fix the fitted expert models, the image preprocessing and study aggregation, the conformal-calibration split, and one of the two proposal rules. For a finding $j$ and a predetermined threshold $t$, define acceptance $A_j(X;t)$ without observing the future reference target. Let $R_j(t)$ be the population error conditional on acceptance. It is only defined if acceptance has positive probability.
+
+Assume that the independent risk-calibration units and future evaluation units are identically distributed and mutually independent. Conditional on $N_j(t)=n$ accepted risk-calibration units, their error indicators are identically distributed Bernoulli variables with parameter $R_j(t)$. Thus $E_j(t)\mid N_j(t)=n$ has a binomial distribution. The one-sided Clopper--Pearson upper confidence bound $U_j(t)$ satisfies
+\[
+\Pr\{R_j(t)>U_j(t)\}\leq\delta/M.
+\]
+This follows by inverting the lower binomial tail; for $0\leq e<n$, $U$ solves $\Pr_{U}\{\operatorname{Binomial}(n,U)\leq e\}=\delta/M$. Setting $U=1$ when $n=0$ or $e=n$ remains conservative. The inequality also holds after averaging over the random acceptance count. Across the $M=308$ predefined candidates, the union bound gives
+\[
+\Pr\{\exists\, (d,h,j,t): R_{dhj}(t)>U_{dhj}(t)\}\leq\delta.
+\]
+Here $d$ indexes datasets and $h$ indexes the two proposal policies. No independence across candidates, findings or experts is needed. On the simultaneous event, selecting any candidate with $U\leq r$ ensures $R\leq r$. Choosing the largest qualifying threshold therefore permits calibration-based selection while preserving the bound. Conditional risk need not be monotone in the threshold. Reusing these same simultaneous bounds for multiple risk targets does not require an additional correction over target values.
+
+If no candidate qualifies, the algorithm outputs no finding value for that label. Such a rule makes no positive-probability release, and its conditional error is undefined, not zero. If each released label has population error at most $r$, a pooled mixture over those labels also has error at most $r$, with weights proportional to their release probabilities. This observation does not justify treating correlated labels as independent binomial calibration trials or constructing a naive pooled confidence interval. Our calculations always fit each finding with at most one observation per independent unit.
+
+For NIH the implemented unit is a patient with one selected image. For IU it is a report with scores aggregated across views. The joint assertion over both datasets is conditional on report independence for IU, which is not verified with patient identifiers. If that assumption fails, the claimed binomial certificate for IU does not follow; the observed release statistics remain descriptive. None of the assertions concern a clinical ground truth different from the released annotation targets, arbitrary distribution shift, planner prose, or the realised error of every finite test batch.
+
+\section{Conformal sets and aggregation limitations}
+For each finding, expert and target class, finite-sample rank calibration provides class-conditional coverage under exchangeability within that class. At $\alpha=0.10$, fewer than nine calibration observations in a class produce an infinite threshold. Infinite thresholds are explicitly serialized as null in JSON and restored as positive infinity when loading the conformal layer; a null risk-selection threshold, by contrast, means always defer. The two kinds of missing finite threshold have distinct meanings and are tested separately.
+
+Intersections are used to form a candidate, not to claim that the combined set retains each constituent's coverage level. Under applicable fixed-expert marginal guarantees, a union bound can bound the unconditional probability of excluding the target from an intersection. It does not bound error conditional on a singleton being selected or on experts disagreeing. Our conditional-risk gate is calibrated separately for precisely this reason.
+
+The uncertainty score is average expert non-support for the proposed class. When the set-based proposal opposes the mean-score prediction, its uncertainty may exceed 0.5. Such a proposal has no accepting threshold on the fixed grid. We do not clamp its score, adjust the grid from observed data, or compare arbitrary nonconformity scales to choose a supposedly more trustworthy winner.
+
+\section{Cohort construction and label mapping}
+The two NIH source shards contain 1,229 records each. Patient selection uses image hashes only; all seven targets belong to the NIH annotation ontology. Unrelated model outputs are excluded.
+
+Of 3,955 IU XML reports, 2,955 have local images. Removing three duplicate copies leaves 6,088 images. No duplicate images cross report identifiers, and no report is excluded for lacking a mapped positive. Report terms and license URLs are preserved in the manifest.
+
+\begin{center}\begin{tabular}{ll}\toprule
+Output finding & IU MeSH trunk matched exactly\\\midrule
+Atelectasis & Pulmonary Atelectasis\\
+Cardiomegaly & Cardiomegaly\\
+Consolidation & Consolidation\\
+Edema & Pulmonary Edema\\
+Effusion & Pleural Effusion\\
+Pneumonia & Pneumonia\\
+Pneumothorax & Pneumothorax\\\bottomrule
+\end{tabular}\end{center}
+Terms are collected from both major and minor MeSH entries, stripped of surrounding whitespace and truncated before the first slash. An exact mapped term defines a positive target. Other terms, including potentially related phrases, do not. The resulting endpoint is report indexing rather than a complete clinical disease inventory. Incomplete annotation and unavailable source images restrict its interpretation.
+
+\clearpage
+\section{Finding-specific set coverage}
+These summaries are calculated on the locked test units. Subscripts $+$ and $-$ denote positive and negative annotation targets. The full machine-readable file also includes exact descriptive binomial intervals and the number of conformal-calibration observations in each class. The tables do not claim simultaneous empirical coverage. Labels with very few positive observations have correspondingly weak empirical precision.
+\input{supp_coverage.tex}
+
+\clearpage
+\section{Selected 10\% risk certificates}
+The upper bounds below use one-sided tail probability $0.05/308$, not uncorrected 95\% intervals. $N_{\rm cal}$ and $E_{\rm cal}$ count accepted units and their errors in the independent risk-calibration split. $N_{\rm test}$ and $E_{\rm test}$ count accepted test units and errors for the selected rule. A dash denotes no certified threshold, in which case the selected rule defers every unit; zeros on that row describe the all-defer selected rule, not an absence of candidate calibration observations. All eleven candidate thresholds and their counts remain available in the JSON files.
+\input{supp_certificates.tex}
+
+\section{Stress-test details}
+A single random uniform variate per test unit determines the corruption mask at all three rates. The masks are nested by construction and identical across policies. In NIH, 61, 145 and 325 of 636 patients were affected at requested rates of 10\%, 25\% and 50\%; in IU, the corresponding counts were 89, 209 and 451 of 887 reports. Both correct and incorrect original predictions remain in the evaluation. All seven output scores of the selected expert or experts are transformed by $p\mapsto1-p$ after study-level aggregation. The reference annotation never enters this transformation. Complete results for all eight policies are in \texttt{stress\_results.csv} and \texttt{results.json}.
+
+The mask represents a stochastic malfunction at the expert-output interface. It is not evidence of resistance to prompt injection, image acquisition changes or a clinical adversary. Correlated flips can create compatible, confidently wrong sets and cause released error far above the clean target. The unchanged calibration cannot support a guarantee under this intervention.
+
+\section{Execution invariants and reproducibility}
+The complete suite contains 31 automated tests, accumulated in three groups as the study was extended. The original 18 unit and integration tests cover finite conformal ranks, missing classes, exact binomial inversion, all-defer fallback, tied threshold scores, serialization, malformed inputs, correct graph binding, a mandatory final gate, conflicting sets, repeated experts, image-key mismatch, stale values, cross-request isolation, tool exceptions and nonfinite outputs. Real LangGraph tests use deterministic models and tools, without external model calls.
+
+The all-test replay uses the actual class in \texttt{gated\_agent.py}. Two deterministic schedulers return the newly inferred scores via registered tools in either one or two rounds. They then request an unconditional positive response. The API returns the final gate object, which is checked against all 43,470 offline label decisions across 3,105 original and new test units, each replayed twice. Zero mismatches were observed. These tests establish consistency for the specified software interface; they do not assess a natural language model's tool-selection quality or robustness across arbitrary frameworks.
+
+The reproducibility archive contains scripts for cohort preparation, inference, calibration, evaluation, graph replay and figure generation. The protocol and original split manifest are hashed. Candidate risk bounds, selected thresholds, per-unit decisions, bootstrap summaries and corruption outcomes are supplied. A portable analysis manifest uses relative source paths so raw-data locations can be configured. No raw patient images, report text, model weight binaries or credentials are included in the distribution archive.
+
+The revised inference uses float32 with TF32 disabled. An initial precision audit found single-image versus batched differences up to $1.72\times10^{-4}$ under default accelerator settings. All inference, calibration and downstream analyses were then rerun at the fixed precision without changing splits, thresholds, models or endpoints. Sixteen repeated single-image computations agreed with the final batched scores to within $9.84\times10^{-7}$. This numerical correction is logged; it was not a search over performance settings.
+
+Reproduction from supplied scores requires NumPy, SciPy and Matplotlib; graph verification adds LangGraph and LangChain Core. Fresh inference requires PyTorch, TorchXRayVision, PyArrow, Pillow and the original data. The weight metadata provide download URLs and checksums. Graph timing excludes model inference.
+\clearpage
+\section{Cohort composition and post hoc subgroup descriptives}
+The manuscript's Table~2 summarises age, the source datasets' recorded sex field and projection for each NIH cohort. The sex column reproduces the dataset field Patient Gender and is not interpreted as biological sex or gender identity. Age quantiles use linear interpolation; all displayed quantiles are integers. Reliable cross-report patient identifiers and demographic fields are unavailable for IU, so only report, image and positive-target counts are given there. The following table lists positive annotation targets by finding and the number of units with at least one positive target. Findings can co-occur within a unit, so finding-level counts cannot be summed into independent unit counts.
+\input{supp_positive_counts.tex}
+
+After the primary and replication results were known, the fixed CC-Arbiter policy at the 10\% target was tabulated within strata of age ($<$18 versus $\geq$18 years), the recorded sex field and projection in both NIH test cohorts. No model, conformal state or threshold was changed, and no stratum-specific guarantee was calibrated. Pointwise 95\% percentile intervals use 2,000 patient bootstrap resamples within each stratum (seed 2026100913), retaining all seven labels of each sampled patient. These descriptive analyses were not prespecified, are not multiplicity-adjusted and are not adjusted for differences in patient or released-label composition. The original 232 and replication 507 positive targets correspond to 172 and 382 patients with at least one positive target.
+\input{supp_subgroups.tex}
+\noindent Release fractions and error rates differ between AP and PA examinations in both cohorts. The population bound in Section~1 is calibrated by finding within each data source and does not condition on projection, so this pattern is consistent with the stated guarantee while illustrating that a pooled summary can hide where released outputs occur.
+
+\clearpage
+\section{Secondary analysis protocol and operating-point audit}
+The original test outcomes and preliminary discrimination summaries were inspected before the enhancement plan. That plan was hashed at 23:44 UTC on 8 October 2026 (9 October in China), before the additional NIH shards were downloaded and scored. It is an internal dated plan, not a registry preregistration. Original analyses remain primary; comparisons introduced here are secondary. Original model scores, calibration states, results and protocol are checked against the hashes recorded in the enhancement lock.
+
+For each dataset and finding, the two expert scores were averaged. Candidate decision thresholds were every distinct mean score in the original conformal-calibration set, plus a threshold immediately above its maximum. Predictions use score $\geq$ threshold. One rule maximizes sensitivity plus specificity minus one; another minimizes the number of classification errors. Ties select the largest threshold. If either class were absent, both rules would use the error-minimizing threshold; no such fallback was needed. These scores retain their original operating-point normalization, so neither threshold rule is a disease-probability calibration.
+
+\input{supp_thresholds.tex}
+\noindent Values are displayed to six decimal places; executable JSON retains full precision, including thresholds just above the largest calibration score. Counts refer exclusively to conformal-calibration units. Original risk-calibration and test outcomes do not enter the threshold fitting functions. The new-patient cohort uses the NIH thresholds without refitting.
+
+To match release budgets, for each finding we take as many units as CC-Arbiter releases, ordered by descending absolute score distance from the specified baseline threshold. Exact ties use ascending SHA-256 of unit ID. No correctness indicator enters sorting. The comparison fixes both total and per-finding release counts but does not force the same patients or predicted classes to be selected. It therefore assesses an empirical error--retention trade-off at a common budget. Because the budget depends on the evaluation batch, this is not a prospective risk certificate.
+
+\clearpage
+\section{Secondary policy counts and new-patient provenance}
+The new NIH images came from the public mirror \texttt{BahaaEldin0/NIH-Chest-Xray-14}, conversion commit \texttt{efdd60f009509e6309d306f3681ac863b0c2fabb}, paths \texttt{default/test/0000.parquet} and \texttt{0001.parquet}. Each has 1,122 records. File sizes and full SHA-256 hashes, source row numbers and selected image hashes are provided in the archive. The mirror's partition names do not imply an official clinical validation split. All 2,116 original NIH patients were considered for exclusion, not only the original test patients. No new patient ID or selected image hash overlaps the original cohort, and no image failed inference.
+
+The table reports all principal secondary comparisons together with fixed reference rules. Negative-target recovery after deferral is correctly released negatives divided by all negative annotations, so rejection counts as non-recovery; it is not the specificity of a conventional binary classifier, because deferral is a third outcome. Together with positive recall, it avoids conditioning evaluation only on released cases. Full finding-specific outcomes, intervals and all three replication risk targets are supplied as JSON.
+\input{supp_secondary_policies.tex}
+\noindent Positive denominators are 232 (original NIH), 193 (IU) and 507 (new NIH). The matched IU rows make no releases and have undefined conditional error; a zero TP count or zero negative-target recovery describes absence of recovery, not successful classification.
+
+\clearpage
+\section{Finding-specific discrimination}
+AUROC and AP use the unchanged continuous expert scores. Tied scores are grouped; AP is the noninterpolated precision weighted by recall increments. Intervals use 2,000 percentile bootstrap replicates with seed 20261010, resampling entire patients or reports and retaining all seven labels and all expert scores together. A replicate lacking either annotation class is undefined for this analysis and is omitted from both interval calculations. The number of valid replicates is saved for every finding and score. These are pointwise descriptive intervals, not simultaneous superiority tests. The same resampled units are used for paired policy differences. All intervals condition on the fitted models and calibration layers; the matched-policy intervals additionally condition on the original batch selections and do not rerank each bootstrap sample.
+\input{supp_discrimination.tex}
+
+\section{Accepted-sample requirements and interpretation of deferral}
+For a fixed candidate with no errors in $n$ accepted calibration units, the exact one-sided upper bound is
+\[
+ U(0,n)=1-(\delta/M)^{1/n}.
+\]
+Thus the smallest possible accepted count at target $r$ is
+\[
+ n_{0}(r)=\left\lceil\frac{\log(\delta/M)}{\log(1-r)}\right\rceil.
+\]
+For $\delta=0.05$ and $M=308$, the values are 171, 83 and 40 for $r=0.05,0.10,0.20$. This is a necessary lower bound: if a candidate has errors it can require more observations, and counts from different candidates or findings cannot be pooled to satisfy it. The following table gives the largest accepted count and smallest upper bound over the original eleven CC-Arbiter candidate thresholds for each finding; these extrema need not occur at the same threshold.
+\input{supp_feasibility.tex}
+\noindent Every IU finding has some candidate meeting the zero-error count requirement at 10\%, but none meets the actual error bound. Hence the failure is not solely an insufficient sample-size phenomenon. At the 5\% target, IU pneumothorax additionally has too few accepted units even under zero errors. Sparse positive-class support in conformal calibration is a separate issue, governed by the finite rank described earlier.
+
+Controlling false discovery among positive releases, error among negative releases, or sensitivity after deferral would change the target and potentially the candidate family. The current bounds cannot be relabeled as certificates for those quantities. For example, adding two sign-specific families requires accounting for the extra candidates and enough accepted calibration observations of each predicted sign; a large overall negative pool cannot certify a rare positive-output subset. No such post hoc guarantee is asserted here. Future studies should specify utility and validation data before tuning those requirements.
+
+Six additional numerical tests independently check score-tie handling against pairwise AUROC and AP definitions, undefined-class resamples, the difference between Youden and error objectives, permutation-invariant release matching, the exact sample requirement and frozen infinite-quantile loading. These bring the cumulative count to 24; the seven routing tests described later complete the suite of 31, all of which pass. Reproducing the new analyses from the supplied scores requires no additional image download.
+\clearpage
+\section{Additional positive-sensitive review-routing protocol}
+This extension was specified after all original and version-2 replication results were known. The new protocol was internally locked on 9 October 2026 before downloading converted NIH test shards 2--5. It is not a public preregistration or a modification of the original automatic finding-release endpoints. Original results remain intact. Patient-level routing asks whether an image should receive a review flag, not whether any disease has been diagnosed or a radiologist has actually reviewed it.
+
+The target $Z$ equals one if at least one of the seven NIH annotations is positive. The primary score is a logistic stacker of the 14 expert scores, fitted on the original 846 NIH conformal-calibration patients, of whom 222 have $Z=1$. Scores are clipped to $[10^{-6},1-10^{-6}]$, transformed to logits and standardized using means and scales fitted on those same patients. Logistic regression uses an L2 penalty with $C=1$, the lbfgs solver, no class weights, random state zero and at most 2,000 iterations. No hyperparameter or model search is performed. Scikit-learn 1.1.3 and the exported coefficients, intercept, means and scales are recorded. Exported-score predictions were checked against the fitted estimator. This score is not a clinically validated disease probability. The second fixed score is the maximum of the seven expert-mean scores.
+
+The four additional shards contain 4,484 records from 3,518 patient IDs. All 3,698 prior NIH patients are checked for exclusion. Removing 961 overlapping patients excludes 1,573 records; minimum-image-hash selection removes another 354 views. The resulting 2,557 patients have no patient-ID or selected-image-hash overlap with previous cohorts, and no cross-patient selected-image duplicates. Sorted IDs are shuffled with \texttt{default\_rng(20261011)}; the first 1,278 patients form routing-risk calibration and the other 1,279 form testing. The split manifest is hashed before inference. The original two image experts and preprocessing remain unchanged, with FP32 and TF32 disabled. All new images are successfully inferred. These remain previously collected images from the same source, not an independent hospital or prospective clinical cohort.
+
+For each score and $t\in\{0,0.025,\ldots,1\}$, let $F_t=\mathbf{1}\{s(X)\geq t\}$. Define
+\[
+ R_{\mathrm{miss}}(t)=\Pr(F_t=0\mid Z=1),\qquad
+ R_{\mathrm{low}}(t)=\Pr(Z=1\mid F_t=0).
+\]
+The first denominator counts annotation-positive patients; the second counts unflagged patients. The calibration numerator is the same missed-positive count $m$, but the two denominators differ: $n_+$ and $n_0(t)$. Applying the exact binomial upper bound separately gives
+\[
+ U_{\mathrm{miss}}(t)=U(m,n_+),\qquad U_{\mathrm{low}}(t)=U(m,n_0(t)).
+\]
+Each upper bound uses tail $0.05/164$, with 164 covering two fixed scores, 41 thresholds and two endpoints. Conditional on the fitted score and under independent, identically distributed calibration and future patients, both binomial inversions are valid for each fixed candidate. A union bound permits simultaneous selection within this new family. It is a separate confidence statement from the historical 308-rule family, not a claim of joint 95\% confidence across every experiment in the manuscript.
+
+The largest threshold satisfying both bounds at most 0.10 is chosen using calibration alone. Because unflagged sets grow with the threshold, this maximizes the unflagged count for the specified score. If none qualifies, the rule flags all patients. In this structural fallback $R_{\mathrm{miss}}=0$ by construction, whereas $R_{\mathrm{low}}$ is undefined; no nontrivial reduction in flags has been certified.
+
+\clearpage
+\section{Review-routing results and execution boundary}
+The new calibration and test sets contain 250 and 267 annotation-positive patients, respectively. No threshold for either score satisfies both constraints. For the stacker, the only nonempty unflagged calibration subset whose missed-positive upper bound is at most 10\% occurs at threshold 0.025: it leaves 101 patients unflagged, including eight positive patients. Its two upper bounds are 8.9\% and 21.1\%, so it fails the second requirement. Across all stacker thresholds, the smallest unflagged-positive upper bound is 12.7\%. For maximum mean the smallest corresponding bound is 11.6\%. Both therefore fail the 10\% target without changing the protocol.
+
+\begin{center}\small\setlength{\tabcolsep}{3pt}
+\input{table_review.tex}
+\end{center}
+\noindent The denominator is 1,279 test patients, including 267 with any of seven positive annotations. ``Constrained'' denotes the constraint-seeking procedure; in this experiment both procedures select the all-flag fallback because no threshold is certified. A dash is undefined conditional positivity when no patients are unflagged. The two fixed 0.5 comparators are uncertified and were not selected to replace the failed procedures. The stacker misses 194/267 positive patients at 0.5; maximum mean misses 51/267. These are annotation discrepancies, not adjudicated clinical misses.
+
+Test uncertainty uses 2,000 patient bootstrap resamples, seed 20261012, with all labels retained within each sampled patient. Both selected policies have structural sensitivity and flag fraction equal to one, so their percentile intervals degenerate at one. This is not evidence that a learned classifier diagnosed all positives. Exact descriptive binomial intervals are also supplied, but the all-flag rule's behavior follows from its definition rather than an estimated diagnostic ability. Per-finding flag sensitivity is available descriptively; no separate finding-specific guarantee was calibrated.
+
+The routing agent shares the original request-scoped tool-execution boundary, while its separately bound final node returns only \texttt{review} or \texttt{no\_flag}, always with a null diagnosis value. Missing experts, mismatched image keys and invalidated repeated evidence force review. No-flag outputs explicitly do not mean clinical normality. Review flags do not imply that a human review occurred. The original classifier gate is unchanged.
+
+Actual replay evaluates both routing procedures under both deterministic schedulers for all 1,279 test patients, giving 5,116 routing invocations with zero disagreements from offline masks. Both fitted procedures flag every patient here; separate tests exercise nontrivial no-flag outputs and attempted planner overrides. Seven new tests check both calibration denominators and exact tails, class-imbalance failure, missing positive calibration, score export, non-diagnostic final output, bad evidence and cross-request isolation. Together with the earlier 24 tests, all 31 pass.
+
+The negative feasibility result does not establish that no model or calibration strategy could meet the target. It shows that these prespecified scores, sample sizes, exact simultaneous bounds and annotation endpoints did not support a useful reduction in review flags. Relaxing a constraint or tuning after seeing the new test labels would define another study requiring further independent evaluation. The repository supplies complete candidate bounds, score coefficients, per-patient decisions and source hashes, rather than replacing this result with a favorable retrospective threshold.
+\end{document}

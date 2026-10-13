@@ -1,0 +1,25 @@
+% Font setup that compiles under both engines.
+% XeTeX/Tectonic: native OpenType Times/Arial declarations, no extra packages.
+% pdfLaTeX (used by the journal's TeX Live 2021 build): standard PS fonts.
+\ifdefined\XeTeXversion
+\DeclareFontFamily{TU}{ccserif}{}
+\DeclareFontShape{TU}{ccserif}{m}{n}{<->"[local-fonts/times.ttf]"}{}
+\DeclareFontShape{TU}{ccserif}{m}{it}{<->"[local-fonts/timesi.ttf]"}{}
+\DeclareFontShape{TU}{ccserif}{b}{n}{<->"[local-fonts/timesbd.ttf]"}{}
+\DeclareFontShape{TU}{ccserif}{bx}{n}{<->"[local-fonts/timesbd.ttf]"}{}
+\DeclareFontShape{TU}{ccserif}{b}{it}{<->"[local-fonts/timesbi.ttf]"}{}
+\DeclareFontShape{TU}{ccserif}{bx}{it}{<->"[local-fonts/timesbi.ttf]"}{}
+\DeclareFontFamily{TU}{ccsans}{}
+\DeclareFontShape{TU}{ccsans}{m}{n}{<->"[local-fonts/arial.ttf]"}{}
+\DeclareFontShape{TU}{ccsans}{b}{n}{<->"[local-fonts/arialbd.ttf]"}{}
+\DeclareFontShape{TU}{ccsans}{bx}{n}{<->"[local-fonts/arialbd.ttf]"}{}
+\DeclareFontShape{TU}{ccsans}{m}{it}{<->"[local-fonts/ariali.ttf]"}{}
+\renewcommand{\rmdefault}{ccserif}
+\renewcommand{\sfdefault}{ccsans}
+\renewcommand{\ttdefault}{ccsans}
+\else
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage[scaled=0.92]{helvet}
+\renewcommand{\ttdefault}{phv}
+\fi

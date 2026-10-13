@@ -1,0 +1,17 @@
+{
+  "source_rows": 4484,
+  "source_patients": 3518,
+  "prior_patient_ids": 3698,
+  "overlapping_patients_excluded": 961,
+  "overlapping_rows_excluded": 1573,
+  "prior_hash_rows_excluded": 0,
+  "cross_patient_duplicates_removed": 0,
+  "selected_patients": 2557,
+  "split_counts": {
+    "risk": 1278,
+    "test": 1279
+  },
+  "patient_overlap_remaining": 0,
+  "manifest_sha256": "2368c07a15799e9e9ee297b12036d60eeb0ad466caa2843bd2cab5512a802ee0",
+  "locked_before_inference_utc": "2026-10-09T03:09:29.124118+00:00"
+}
