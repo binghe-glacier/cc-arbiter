@@ -29,8 +29,8 @@
     },
     {
       "path": "START_HERE.html",
-      "bytes": 10144,
-      "sha256": "1b89450e13f5ba5b6bff414516ad1770ac0a03bf71a4061ad6d386368251bfaf"
+      "bytes": 10237,
+      "sha256": "e9cbea5684a6c3e5476b6c519a7e66db56385d2c9259b5836e67a69fa384134f"
     },
     {
       "path": "code/build_pdf.py",
@@ -186,11 +186,6 @@
       "path": "code/verify_strengthened.py",
       "bytes": 3247,
       "sha256": "ff1b8fbc940cef5c6cdf81d5b90109965d7076420ce7db0b9237e9939a3c2be2"
-    },
-    {
-      "path": "code/zenodo_update.py",
-      "bytes": 2969,
-      "sha256": "63c9efc7ab4e41487ab0d5f4cc2e0763f44b35cf78adde1c46f2a4bc9e797545"
     },
     {
       "path": "cover_letter.md",
@@ -415,7 +410,7 @@
     {
       "path": "output/pdf/figures.pdf",
       "bytes": 233705,
-      "sha256": "4816683f3878e1f246722e1c291ec0b53f718c4654cbc8b66804bfd9fa6069c0"
+      "sha256": "abf314295a675776720469900566817daec89ee0409cd5911d8e42a7d8293332"
     },
     {
       "path": "output/pdf/main.pdf",
@@ -764,8 +759,8 @@
     },
     {
       "path": "作者必读_修订与投稿建议.md",
-      "bytes": 8331,
-      "sha256": "d1d331895e6bd5d769d2f67498820d1154cd95d1b3678aeb1b08b008bbb56bcf"
+      "bytes": 8424,
+      "sha256": "5e8408a00225601e4ad9d7a93071f624aa1481d1c08936a70760e866cce97d01"
     }
   ]
 }
