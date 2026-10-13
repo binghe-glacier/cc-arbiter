@@ -189,8 +189,8 @@
     },
     {
       "path": "code/zenodo_update.py",
-      "bytes": 2840,
-      "sha256": "457d4b5ac35df50797ead9dcdd5eaa89a498333a4fb798a322e6c9fad61e19a7"
+      "bytes": 2969,
+      "sha256": "63c9efc7ab4e41487ab0d5f4cc2e0763f44b35cf78adde1c46f2a4bc9e797545"
     },
     {
       "path": "cover_letter.md",
@@ -414,8 +414,8 @@
     },
     {
       "path": "output/pdf/figures.pdf",
-      "bytes": 233704,
-      "sha256": "1b742257922c5065ded6f0cb1b8063be0e8f09defeab9f8e9c9b8ae5df82ab06"
+      "bytes": 233705,
+      "sha256": "d0d665387b6f1e5605c76eb38bcb2be28c8f25b22116f1909933b48984dbb13f"
     },
     {
       "path": "output/pdf/main.pdf",

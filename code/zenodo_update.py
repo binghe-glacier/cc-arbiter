@@ -44,7 +44,10 @@ def main():
     print('local zip:', ZIP.name, len(body_bytes), 'bytes, md5', md5)
 
     status, body = call('GET', API + '/draft')
-    print('open draft:', status)
+    print('open draft (GET):', status)
+    if status >= 400:
+        status, body = call('POST', API + '/draft', b'')
+        print('open draft (POST):', status)
     if status >= 400:
         sys.exit(body[:400])
 
