@@ -42,9 +42,9 @@
 \noindent\textbf{Keywords:} chest radiograph; selective prediction; conformal prediction; risk control; medical imaging agents; reproducibility
 
 \section{Background}
-Medical imaging agents combine a planning model with specialist tools for image classification, visual question answering, segmentation and report generation. MedRAX introduced a unified chest radiograph tool interface and the ChestAgentBench benchmark~\cite{medrax}. CXRAgent and RadAgents further develop staged verification and radiologist-inspired workflows~\cite{cxragent,radagents}. These systems motivate a practical engineering question: which tool-derived statements may reach the user when experts disagree or provide uncertain evidence? Providing confidence information to a language model and enforcing an output rule are different operations. A model may disregard an uncertainty annotation, and a correctly written monitor may still be absent from the executed graph.
+Artificial intelligence is increasingly embedded in clinical imaging workflows~\cite{topol2019high}. Medical imaging agents combine a planning model with specialist tools for image classification, visual question answering, segmentation and report generation. MedRAX introduced a unified chest radiograph tool interface and the ChestAgentBench benchmark~\cite{medrax}. CXRAgent and RadAgents further develop staged verification and radiologist-inspired workflows~\cite{cxragent,radagents}. These systems motivate a practical engineering question: which tool-derived statements may reach the user when experts disagree or provide uncertain evidence? Providing confidence information to a language model and enforcing an output rule are different operations. A model may disregard an uncertainty annotation, and a correctly written monitor may still be absent from the executed graph.
 
-Conformal prediction provides one component of a solution. Given suitable calibration data and exchangeability, it constructs prediction sets with finite-sample coverage~\cite{vovk,gentle}. Coverage concerns whether a set contains the specified target; it does not by itself bound error among the subset of outputs that a system chooses to release. Intersecting multiple sets, selecting a singleton and withholding some predictions introduce further selection. A separate selective-risk argument is therefore needed. Moreover, a guarantee against imperfect dataset annotations does not become a guarantee against clinical diagnoses.
+Conformal prediction provides one component of a solution. Given suitable calibration data and exchangeability, it constructs prediction sets with finite-sample coverage~\cite{vovk,gentle}, and prediction sets for image classifiers can be made adaptive to label structure~\cite{angelopoulos2021uncertainty,romano2020classification}. Because marginal coverage can hide label-wise failure, class-conditional validity has its own analysis~\cite{vovk2012conditional}, and we therefore audit each label separately instead of relying on pooled coverage alone. Coverage concerns whether a set contains the specified target; it does not by itself bound error among the subset of outputs that a system chooses to release. Intersecting multiple sets, selecting a singleton and withholding some predictions introduce further selection. A separate selective-risk argument is therefore needed, in the spirit of selective prediction and learning to defer~\cite{geifman2017selective,mozannar2020consistent,madras2018predict}. Moreover, a guarantee against imperfect dataset annotations does not become a guarantee against clinical diagnoses.
 
 Risk calibration methods address several different objectives. Learn Then Test calibrates predictive procedures through hypothesis testing~\cite{ltt}. Conformal Risk Control addresses expected bounded losses under its assumptions~\cite{crc}; a joint wrong-and-released loss is not the conditional error among released predictions. SCoRE studies selective risk more directly~\cite{score}. Work on conformal model aggregation also shows that combining prediction sets requires its own analysis~\cite{coma}. Our aim is not to introduce a new conformal theorem. We implement a transparent finite-family procedure whose statistical unit, release rule and software execution can all be checked.
 
@@ -84,7 +84,7 @@ Table~\ref{tab:characteristics} describes the analysed units, including age, the
 \subsection{Frozen expert models and preprocessing}
 We used TorchXRayVision~\cite{xrv} releases \texttt{densenet121-res224-chex} and \texttt{densenet121-res224-mimic\_ch}. Both use DenseNet-121~\cite{densenet}; their documented training sources are CheXpert~\cite{chex} and MIMIC-CXR~\cite{mimic}, respectively. Thus, the comparison uses different training sources, not different backbone architectures. The selected weight releases do not list NIH or IU as training sources. This source-level audit is not a record-level comparison against the original training databases. Download URLs and SHA-256 weight digests are included with the code.
 
-Each image was decoded to grayscale, normalized to approximately $[-1024,1024]$, centrally cropped, and resized to $224\times224$ with TorchXRayVision's scikit-image resizer. Inference used fixed evaluation-mode models and float32 arithmetic on an NVIDIA RTX 4090, with TF32 disabled. TorchXRayVision's published operating-point normalization was retained. Consequently, the outputs $p_{ej}(x)\in[0,1]$ are model scores, not validated probabilities of disease. Fixed baselines threshold these scores at 0.5. Sixteen randomly selected images were independently rerun one at a time; the maximum absolute deviation from batched scores was below $10^{-6}$. The preprocessing and weight versions were identical across calibration and testing.
+Each image was decoded to grayscale, normalized to approximately $[-1024,1024]$, centrally cropped, and resized to $224\times224$ with TorchXRayVision's scikit-image resizer. Inference used fixed evaluation-mode models and float32 arithmetic on an NVIDIA RTX 4090, with TF32 disabled. TorchXRayVision's published operating-point normalization was retained. Consequently, the outputs $p_{ej}(x)\in[0,1]$ are model scores, not validated probabilities of disease~\cite{guo2017calibration}. Fixed baselines threshold these scores at 0.5. Sixteen randomly selected images were independently rerun one at a time; the maximum absolute deviation from batched scores was below $10^{-6}$. The preprocessing and weight versions were identical across calibration and testing.
 
 \subsection{Conformal evidence and proposal formation}
 Let $e\in\{1,2\}$ index experts, $j\in\{1,\ldots,7\}$ index findings, and $\widetilde Y_j\in\{0,1\}$ denote the annotation target. For each expert, finding and target class $c$, the calibration score is $s_{ej}(x,c)=|c-p_{ej}(x)|$. If there are $n_{jc}$ calibration units with $\widetilde Y_j=c$, the threshold is the $\lceil(n_{jc}+1)(1-\alpha)\rceil$-th ordered score. It is $+\infty$ if the required rank exceeds $n_{jc}$, including when that class is absent. We used $\alpha=0.10$ throughout. The class-conditional set is
@@ -139,7 +139,7 @@ We additionally replayed every test unit through the actual LangGraph implementa
 \subsection{Comparators, outcomes and stress evaluation}
 Eight prespecified policies were evaluated on identical test units: always negative; each individual expert at 0.5; mean score at 0.5; agreement of both thresholded experts; conformal singleton intersection without the risk gate; the mean-score risk gate; and CC-Arbiter. With two experts, disagreement is a tie, so the agreement baseline defers rather than fabricating a third vote. The always-negative rule illustrates the effect of class imbalance and was not itself risk-calibrated.
 
-We report release fraction, errors divided by released opportunities, erroneous releases divided by all opportunities, and correctly released positive annotations divided by all positive annotations. The last outcome is positive recall after deferral, so rejected positives count as not recovered. Conditional error is undefined when no predictions are released. Counts are presented by finding, with pooled summaries treated as descriptive. Confidence intervals for pooled quantities use 2,000 bootstrap resamples of independent units, retaining all seven labels together, with seed 718. They condition on the fitted policy; they do not include calibration-set variability. Paired differences use the same resampled units. We make no equivalence or noninferiority claim and did not select thresholds from these intervals.
+We report release fraction, errors divided by released opportunities, erroneous releases divided by all opportunities, and correctly released positive annotations divided by all positive annotations. The last outcome is positive recall after deferral, so rejected positives count as not recovered. Conditional error is undefined when no predictions are released. Counts are presented by finding, with pooled summaries treated as descriptive. Confidence intervals for pooled quantities use 2,000 bootstrap resamples~\cite{efron1979bootstrap} of independent units, retaining all seven labels together, with seed 718. They condition on the fitted policy; they do not include calibration-set variability. Paired differences use the same resampled units. We make no equivalence or noninferiority claim and did not select thresholds from these intervals.
 
 To test failure mechanisms, a uniform random number was assigned to every test unit with seed 1309. At requested corruption rates of 10\%, 25\% and 50\%, the entire seven-score vector was transformed to $1-p$ for expert B alone, or for both experts with the same mask. The same masks were used across policies, and no case was selected by correctness or reference label. Calibration remained fixed. These experiments model synthetic tool-output failures; the clean-data certificate does not cover the resulting changed score distribution.
 
@@ -148,7 +148,7 @@ After inspecting the original test results, we fixed a separate, hashed enhancem
 
 To assess the contribution of rejection, we also matched CC-Arbiter's 10\% policy release count separately for each finding. The alternatives ranked units by distance of their mean score from 0.5 or from the calibration-only Youden threshold, using the corresponding binary prediction. Ties used a hash of unit ID. The resulting batch masks use no reference labels. They are retrospective, cohort-dependent comparisons, not certified deployment policies. Paired bootstrap intervals condition on the fitted thresholds and selected masks. Finding-specific AUROC and average precision (AP), with pointwise 95\% intervals from 2,000 unit bootstrap samples, describe discrimination separately from operating-point performance. Additional file~1 specifies undefined resamples, thresholds and denominators.
 
-We acquired the two prespecified public NIH parquet test shards, numbered 0 and 1, from the \texttt{BahaaEldin0/NIH-Chest-Xray-14} mirror, recording an immutable conversion commit and file hashes. Their 2,244 image records represented 1,966 patients. Excluding all 384 patients shared with the original NIH cohort removed 502 records. Hash-based selection of one image per remaining patient removed 160 additional views, leaving 1,582 patients with no overlap of patient IDs or selected image hashes. Both frozen experts, preprocessing, original NIH conformal quantiles and risk-gate states were reused without refitting. Secondary baseline thresholds also remained fixed. This is newly evaluated, patient-disjoint same-source replication; the data themselves were collected previously. It is not external-center or prospective clinical validation. Certificate transfer still requires a common sampling distribution, which patient disjointness alone cannot establish.
+We acquired the two prespecified public NIH parquet test shards, numbered 0 and 1, from the \texttt{BahaaEldin0/NIH-Chest-Xray-14} mirror, recording an immutable conversion commit and file hashes. Their 2,244 image records represented 1,966 patients. Excluding all 384 patients shared with the original NIH cohort removed 502 records. Hash-based selection of one image per remaining patient removed 160 additional views, leaving 1,582 patients with no overlap of patient IDs or selected image hashes. Both frozen experts, preprocessing, original NIH conformal quantiles and risk-gate states were reused without refitting. Secondary baseline thresholds also remained fixed. This is newly evaluated, patient-disjoint same-source replication; the data themselves were collected previously. It is not external-center or prospective clinical validation. Certificate transfer still requires a common sampling distribution, which patient disjointness alone cannot establish~\cite{tibshirani2019covariate}.
 
 \subsection{Separate positive-sensitive review-routing study}
 After the original and replication results were known, a further protocol was locked before acquiring four additional NIH shards. This extension changes the action and estimand: it flags a patient for review rather than releasing a positive diagnosis. Let $Z=1$ denote at least one of the seven annotations, and $F_t=1$ denote a review flag. We separately constrain $\Pr(F_t=0\mid Z=1)$ and $\Pr(Z=1\mid F_t=0)$ to at most 0.10. The former limits missed annotation-positive patients; the latter limits their proportion among unflagged patients. Neither is the original finding-release risk, and an unflagged patient is not declared clinically normal.
@@ -302,21 +302,57 @@ AP: anteroposterior projection (the ranking metric average precision is written 
 \paragraph{Additional files.} Additional file~1: supplementary methods, statistical proof, cohort composition, post hoc subgroup descriptives, cohort-level positive counts and detailed calibration results (PDF). Additional file~2: reproducibility archive containing executable code, fixed derived scores, split manifests, machine-readable results and provenance records (ZIP). Original images, report text and model weights are excluded from both files.
 \begin{thebibliography}{99}
 \small
-\bibitem{medrax} Fallahpour A, Ma J, Munim A, Lyu H, Wang B. MedRAX: Medical reasoning agent for chest X-ray. 2025. arXiv:2502.02673.
-\bibitem{cxragent} Lou J, Yang Y, Yu Z, Fu Z, Han W, Huang Q, Yu J. CXRAgent: Director-orchestrated multi-stage reasoning for chest X-ray interpretation. 2025. arXiv:2510.21324.
-\bibitem{radagents} Zhang K, Barrett CD, Kim J, Sun L, Taghavi T, Kenthapadi K. RadAgents: Multimodal agentic reasoning for chest X-ray interpretation with radiologist-like workflows. MIDL 2026. arXiv:2509.20490.
-\bibitem{vovk} Vovk V, Gammerman A, Shafer G. Algorithmic learning in a random world. Springer; 2005.
-\bibitem{gentle} Angelopoulos AN, Bates S. A gentle introduction to conformal prediction and distribution-free uncertainty quantification. 2021. arXiv:2107.07511.
-\bibitem{ltt} Angelopoulos AN, Bates S, Cand\`es EJ, Jordan MI, Lei L. Learn then test: Calibrating predictive algorithms to achieve risk control. 2021. arXiv:2110.01052.
-\bibitem{crc} Angelopoulos AN, Bates S, Fisch A, Lei L, Schuster T. Conformal risk control. ICLR 2024. arXiv:2208.02814.
-\bibitem{score} Bai T, Jin Y. Conformal selective prediction with general risk control. 2026. arXiv:2603.24704.
-\bibitem{coma} Gasparin M, Ramdas A. Conformal online model aggregation. arXiv:2403.15527. Revised 2025.
-\bibitem{nih} Wang X, Peng Y, Lu L, Lu Z, Bagheri M, Summers RM. ChestX-ray8: Hospital-scale chest X-ray database and benchmarks on weakly-supervised classification and localization of common thorax diseases. Proceedings of CVPR. 2017. arXiv:1705.02315.
-\bibitem{iu} Demner-Fushman D, Kohli MD, Rosenman MB, et al. Preparing a collection of radiology examinations for distribution and retrieval. J Am Med Inform Assoc. 2016;23:304--310. doi:10.1093/jamia/ocv080.
-\bibitem{xrv} Cohen JP, Viviano JD, Bertin P, et al. TorchXRayVision: A library of chest X-ray datasets and models. 2021. arXiv:2111.00595.
-\bibitem{densenet} Huang G, Liu Z, van der Maaten L, Weinberger KQ. Densely connected convolutional networks. Proceedings of CVPR. 2017. arXiv:1608.06993.
-\bibitem{chex} Irvin J, Rajpurkar P, Ko M, et al. CheXpert: A large chest radiograph dataset with uncertainty labels and expert comparison. 2019. arXiv:1901.07031.
-\bibitem{mimic} Johnson AEW, Pollard TJ, Berkowitz SJ, et al. MIMIC-CXR, a de-identified publicly available database of chest radiographs with free-text reports. Sci Data. 2019;6:317. doi:10.1038/s41597-019-0322-0.
-\bibitem{cpinterval} Clopper CJ, Pearson ES. The use of confidence or fiducial limits illustrated in the case of the binomial. Biometrika. 1934;26:404--413. doi:10.1093/biomet/26.4.404.
+\bibitem{topol2019high}
+Topol EJ. High-performance medicine: the convergence of human and artificial intelligence. Nat Med. 2019;25:44--56. doi:10.1038/s41591-018-0300-7.
+\bibitem{medrax}
+ Fallahpour A, Ma J, Munim A, Lyu H, Wang B. MedRAX: Medical reasoning agent for chest X-ray. 2025. arXiv:2502.02673.
+\bibitem{cxragent}
+ Lou J, Yang Y, Yu Z, Fu Z, Han W, Huang Q, Yu J. CXRAgent: Director-orchestrated multi-stage reasoning for chest X-ray interpretation. 2025. arXiv:2510.21324.
+\bibitem{radagents}
+ Zhang K, Barrett CD, Kim J, Sun L, Taghavi T, Kenthapadi K. RadAgents: Multimodal agentic reasoning for chest X-ray interpretation with radiologist-like workflows. MIDL 2026. arXiv:2509.20490.
+\bibitem{vovk}
+ Vovk V, Gammerman A, Shafer G. Algorithmic learning in a random world. Springer; 2005.
+\bibitem{gentle}
+ Angelopoulos AN, Bates S. A gentle introduction to conformal prediction and distribution-free uncertainty quantification. 2021. arXiv:2107.07511.
+\bibitem{angelopoulos2021uncertainty}
+Angelopoulos AN, Bates S, Malik J, Jordan MI. Uncertainty sets for image classifiers using conformal prediction. International Conference on Learning Representations. 2021. arXiv:2009.14193.
+\bibitem{romano2020classification}
+Romano Y, Sesia M, Cand\`es EJ. Classification with valid and adaptive coverage. Adv Neural Inf Process Syst. 2020;33:3581--3591. arXiv:2006.02544.
+\bibitem{vovk2012conditional}
+Vovk V. Conditional validity of inductive conformal predictors. In: Proceedings of the Asian Conference on Machine Learning. PMLR; 2012. p. 475--490.
+\bibitem{geifman2017selective}
+Geifman Y, El-Yaniv R. Selective classification for deep neural networks. 2017. arXiv:1705.08500.
+\bibitem{mozannar2020consistent}
+Mozannar H, Sontag D. Consistent estimators for learning to defer to an expert. Proceedings of the 37th International Conference on Machine Learning. PMLR; 2020. p. 7076--7087.
+\bibitem{madras2018predict}
+Madras D, Pitassi T, Zemel R. Predict responsibly: improving fairness and accuracy by learning to defer. Adv Neural Inf Process Syst. 2018;31.
+\bibitem{ltt}
+ Angelopoulos AN, Bates S, Cand\`es EJ, Jordan MI, Lei L. Learn then test: Calibrating predictive algorithms to achieve risk control. 2021. arXiv:2110.01052.
+\bibitem{crc}
+ Angelopoulos AN, Bates S, Fisch A, Lei L, Schuster T. Conformal risk control. ICLR 2024. arXiv:2208.02814.
+\bibitem{score}
+ Bai T, Jin Y. Conformal selective prediction with general risk control. 2026. arXiv:2603.24704.
+\bibitem{coma}
+ Gasparin M, Ramdas A. Conformal online model aggregation. arXiv:2403.15527. Revised 2025.
+\bibitem{nih}
+ Wang X, Peng Y, Lu L, Lu Z, Bagheri M, Summers RM. ChestX-ray8: Hospital-scale chest X-ray database and benchmarks on weakly-supervised classification and localization of common thorax diseases. Proceedings of CVPR. 2017. arXiv:1705.02315.
+\bibitem{iu}
+ Demner-Fushman D, Kohli MD, Rosenman MB, et al. Preparing a collection of radiology examinations for distribution and retrieval. J Am Med Inform Assoc. 2016;23:304--310. doi:10.1093/jamia/ocv080.
+\bibitem{xrv}
+ Cohen JP, Viviano JD, Bertin P, et al. TorchXRayVision: A library of chest X-ray datasets and models. 2021. arXiv:2111.00595.
+\bibitem{densenet}
+ Huang G, Liu Z, van der Maaten L, Weinberger KQ. Densely connected convolutional networks. Proceedings of CVPR. 2017. arXiv:1608.06993.
+\bibitem{chex}
+ Irvin J, Rajpurkar P, Ko M, et al. CheXpert: A large chest radiograph dataset with uncertainty labels and expert comparison. 2019. arXiv:1901.07031.
+\bibitem{mimic}
+ Johnson AEW, Pollard TJ, Berkowitz SJ, et al. MIMIC-CXR, a de-identified publicly available database of chest radiographs with free-text reports. Sci Data. 2019;6:317. doi:10.1038/s41597-019-0322-0.
+\bibitem{guo2017calibration}
+Guo C, Pleiss G, Sun Y, Weinberger KQ. On calibration of modern neural networks. Proceedings of the 34th International Conference on Machine Learning. PMLR; 2017. p. 1321--1330.
+\bibitem{cpinterval}
+ Clopper CJ, Pearson ES. The use of confidence or fiducial limits illustrated in the case of the binomial. Biometrika. 1934;26:404--413. doi:10.1093/biomet/26.4.404.
+\bibitem{efron1979bootstrap}
+Efron B. Bootstrap methods: another look at the jackknife. Ann Stat. 1979;7(1):1--26. doi:10.1214/aos/1176344552.
+\bibitem{tibshirani2019covariate}
+Tibshirani RJ, Barber RF, Cand\`es EJ, Ramdas A. Conformal prediction under covariate shift. Adv Neural Inf Process Syst. 2019;32.
 \end{thebibliography}
 \end{document}
